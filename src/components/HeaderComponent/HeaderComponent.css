@@ -1,0 +1,22 @@
+.HeaderComponent {
+  color: #fff;
+  background-color: #57606f;
+  display: flex;
+  justify-content: space-between;
+}
+.HeaderComponent span {
+  font-size: 28px;
+  margin-left: 10px;
+  text-transform: uppercase;
+}
+.HeaderComponent button {
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.HeaderComponent img {
+  height: 24px;
+}
