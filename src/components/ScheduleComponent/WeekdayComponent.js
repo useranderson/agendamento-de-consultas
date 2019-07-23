@@ -17,6 +17,9 @@ export default function WeekdayComponent({
         return (
           <WeekdayTitleComponent
             key={appointmentWeekday._id}
+            actions={actions}
+            dispatch={dispatch}
+            state={state}
             appointment={appointmentWeekday}
           />
         );

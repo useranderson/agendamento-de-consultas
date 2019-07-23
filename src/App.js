@@ -12,14 +12,15 @@ export default class App extends Component {
     this.state = {
       initialTime: 10,
       finalTime: 18,
-      viewOption: 1, // 1: Schedule, 2: Patients
+      viewOption: 1, // 1: Schedule, 2: Patients, 3: day
       activeWeek: 0,
       appointments: [],
-      selectedWeekday: {}
+      selectedWeekday: 1,
+      weekView: false
     };
   }
-  dispatch = async newState => {
-    await this.setState(reducer(this.state, newState));
+  dispatch = newState => {
+    this.setState(reducer(this.state, newState));
   };
   componentWillMount() {
     let day = 1;
@@ -42,6 +43,7 @@ export default class App extends Component {
         day++;
       }
     }
+    console.log("Ok");
     this.setState({ ...this.state, appointments: appointments });
   }
   render() {

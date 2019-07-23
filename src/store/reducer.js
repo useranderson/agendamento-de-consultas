@@ -7,6 +7,12 @@ export default function reducer(state, action) {
       }
       return { ...state, viewOption: action.option };
     //
+    case "APP_SET_WEEKVIEW":
+      return { ...state, weekView: !state.weekView };
+    //
+    case "APP_SET_SELECTEDWEEKDAY":
+      return { ...state, selectedWeekday: action.selectedWeekday };
+    //
     default:
       return state;
   }
