@@ -17,7 +17,7 @@ export default function HeaderComponent({ actions, dispatch, state }) {
     <div className="HeaderComponent">
       <span>{getHeaderTitle(state)}</span>
       <button onClick={() => dispatch(actions.appSetViewOption(2))}>
-        <img src={calendarImage} />
+        <img src={calendarImage} alt="Mudar visão" />
       </button>
     </div>
   );

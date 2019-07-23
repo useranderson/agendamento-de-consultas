@@ -7,7 +7,7 @@ export default function TimebarComponent({ actions, dispatch, state }) {
   }
   return (
     <div>
-      <div className="AppointmentComponent ">
+      <div className="AppointmentComponent WeekdayTitleComponent">
         <div className="AppointmentComponent-Content timeBar" />
       </div>
       {hours.map(hour => {

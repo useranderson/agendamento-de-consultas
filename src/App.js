@@ -14,7 +14,8 @@ export default class App extends Component {
       finalTime: 18,
       viewOption: 1, // 1: Schedule, 2: Patients
       activeWeek: 0,
-      appointments: []
+      appointments: [],
+      selectedWeekday: {}
     };
   }
   dispatch = async newState => {
@@ -27,7 +28,15 @@ export default class App extends Component {
     for (let k = 0; k < 4; k++) {
       for (let j = 0; j < 7; j++) {
         for (let i = this.state.initialTime; i <= this.state.finalTime; i++) {
-          appointments.push({ _id: _id, hour: i, weekday: j, week: k, day: day, patient: {} });
+          appointments.push({
+            _id: _id,
+            hour: i,
+            weekday: j,
+            week: k,
+            day: day,
+            month: 1,
+            patient: {}
+          });
           _id++;
         }
         day++;
@@ -38,9 +47,21 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderComponent actions={actions} dispatch={this.dispatch} state={this.state} />
-        <NavbarComponent actions={actions} dispatch={this.dispatch} state={this.state} />
-        <ScheduleComponent actions={actions} dispatch={this.dispatch} state={this.state} />
+        <HeaderComponent
+          actions={actions}
+          dispatch={this.dispatch}
+          state={this.state}
+        />
+        <NavbarComponent
+          actions={actions}
+          dispatch={this.dispatch}
+          state={this.state}
+        />
+        <ScheduleComponent
+          actions={actions}
+          dispatch={this.dispatch}
+          state={this.state}
+        />
       </div>
     );
   }
