@@ -28,9 +28,11 @@
 }
 
 .WeekdayTitleComponent {
+  color: #57606f;
   height: 20px;
   padding-top: 2px;
   text-align: center;
   font-size: 8px;
   width: 100%;
+  background-color: #dcdde1;
 }

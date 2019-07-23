@@ -10,7 +10,7 @@ export default function AppointmentComponent({
   thisAppointment
 }) {
   return (
-    <div className="AppointmentComponent">
+    <div className="AppointmentComponent" onClick={() => console.log("Ok")}>
       <div className="AppointmentComponent-Content">{thisAppointment.patient.name}</div>
     </div>
   );

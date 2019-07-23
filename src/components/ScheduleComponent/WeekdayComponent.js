@@ -3,12 +3,7 @@ import React from "react";
 import AppointmentComponent from "./AppointmentComponent";
 import WeekdayTitleComponent from "./WeekdayTitleComponent";
 
-export default function WeekdayComponent({
-  actions,
-  dispatch,
-  state,
-  appointments
-}) {
+export default function WeekdayComponent({ actions, dispatch, state, appointments }) {
   const appointmentWeekdays = [];
   appointmentWeekdays.push(appointments[0]);
   return (

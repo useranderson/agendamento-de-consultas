@@ -10,13 +10,14 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialTime: 10,
-      finalTime: 18,
-      viewOption: 1, // 1: Schedule, 2: Patients, 3: day
       activeWeek: 0,
+      activeAppointment: {},
       appointments: [],
-      selectedWeekday: 1,
-      weekView: false
+      finalTime: 18,
+      initialTime: 10,
+      selectedWeekday: 0,
+      viewOption: 1, // 1: Schedule, 2: Patients, 3: day
+      weekView: true
     };
   }
   dispatch = newState => {
@@ -49,21 +50,9 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderComponent
-          actions={actions}
-          dispatch={this.dispatch}
-          state={this.state}
-        />
-        <NavbarComponent
-          actions={actions}
-          dispatch={this.dispatch}
-          state={this.state}
-        />
-        <ScheduleComponent
-          actions={actions}
-          dispatch={this.dispatch}
-          state={this.state}
-        />
+        <HeaderComponent actions={actions} dispatch={this.dispatch} state={this.state} />
+        <NavbarComponent actions={actions} dispatch={this.dispatch} state={this.state} />
+        <ScheduleComponent actions={actions} dispatch={this.dispatch} state={this.state} />
       </div>
     );
   }
