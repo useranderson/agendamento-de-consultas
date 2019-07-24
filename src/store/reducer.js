@@ -23,7 +23,6 @@ export default function reducer(state, action) {
       return { ...state, appointmentSelectedPatient: patients[0] };
     //
     case "APPOINTMENT_INSERT_SELECTEDPATIENT":
-      console.log(state);
       const newAppointments = state.appointments.map(appointment => {
         if (appointment._id === state.activeAppointment._id) {
           appointment.patient = state.appointmentSelectedPatient;

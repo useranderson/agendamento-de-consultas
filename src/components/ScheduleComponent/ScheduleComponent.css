@@ -17,9 +17,9 @@
 .AppointmentTimeComponent-Content {
   font-size: 10px;
   height: 50px;
-  vertical-align: middle;
-  display: table-cell;
+
   text-align: center;
+  width: 100%;
 }
 .timeBar {
   font-size: 8px;
@@ -35,4 +35,16 @@
   font-size: 8px;
   width: 100%;
   background-color: #dcdde1;
+}
+.category1 {
+  height: 99%;
+  background-color: #ecf0f1;
+  border: 1px solid #7f8c8d;
+  border-radius: 2px;
+}
+.category2 {
+  height: 99%;
+  background-color: #ffda79;
+  border: 1px solid #cc8e35;
+  border-radius: 2px;
 }

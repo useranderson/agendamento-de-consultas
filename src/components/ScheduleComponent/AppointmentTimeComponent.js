@@ -9,6 +9,9 @@ export default function AppointmentTimeComponent({
   appointments,
   thisAppointment
 }) {
+  function verifyClassname(patient) {
+    return `AppointmentTimeComponent-Content category${patient._id}`;
+  }
   async function setShowActiveAppointment(appointment) {
     await dispatch(actions.appSetViewOption(3));
     await dispatch(actions.appSetActiveAppointment(appointment));
@@ -18,7 +21,7 @@ export default function AppointmentTimeComponent({
       className="AppointmentTimeComponent"
       onClick={() => setShowActiveAppointment(thisAppointment)}
     >
-      <div className="AppointmentTimeComponent-Content">{thisAppointment.patient.name}</div>
+      <div className={verifyClassname(thisAppointment.patient)}>{thisAppointment.patient.name}</div>
     </div>
   );
 }

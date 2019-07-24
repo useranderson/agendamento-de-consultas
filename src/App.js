@@ -19,9 +19,9 @@ export default class App extends Component {
       initialTime: 10,
       selectedWeekday: 0,
       patients: [
-        { _id: 1, name: "Anderson Amorim", note: "Nota do Anderson de Amorim" },
-        { _id: 2, name: "Jessica Calegaro", note: "Nota do Jessica Calegaro" },
-        { _id: 3, name: "Luana Amorim", note: "Nota do Luana de Amorim" }
+        { _id: 1, name: "Anderson Amorim", note: "Nota do Anderson de Amorim", category: 1 },
+        { _id: 2, name: "Jessica Calegaro", note: "Nota do Jessica Calegaro", category: 2 },
+        { _id: 3, name: "Luana Amorim", note: "Nota do Luana de Amorim", category: 3 }
       ],
       viewOption: 1, // 1: Schedule, 2: Patients, 3: Appointment
       weekView: true
