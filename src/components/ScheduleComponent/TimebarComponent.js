@@ -7,13 +7,13 @@ export default function TimebarComponent({ actions, dispatch, state }) {
   }
   return (
     <div>
-      <div className="AppointmentComponent WeekdayTitleComponent">
-        <div className="AppointmentComponent-Content timeBar" />
+      <div className="AppointmentTimeComponent WeekdayTitleComponent">
+        <div className="AppointmentTimeComponent-Content timeBar" />
       </div>
       {hours.map(hour => {
         return (
-          <div className="AppointmentComponent " key={hour}>
-            <div className="AppointmentComponent-Content timeBar">
+          <div className="AppointmentTimeComponent " key={hour}>
+            <div className="AppointmentTimeComponent-Content timeBar">
               <strong>{`${hour}:00`}</strong>
             </div>
           </div>

@@ -11,7 +11,7 @@ export default function HeaderComponent({ actions, dispatch, state }) {
     if (state.viewOption === 2) {
       return "Contatos";
     }
-    return 1;
+    return "Agenda";
   }
   return (
     <div className="HeaderComponent">

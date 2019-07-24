@@ -9,12 +9,12 @@
   width: 100%;
 }
 
-.AppointmentComponent {
+.AppointmentTimeComponent {
   width: 100%;
   height: 50px;
   border: 1px solid lightgrey;
 }
-.AppointmentComponent-Content {
+.AppointmentTimeComponent-Content {
   font-size: 10px;
   height: 50px;
   vertical-align: middle;

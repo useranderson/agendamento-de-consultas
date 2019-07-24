@@ -14,7 +14,7 @@ export default function WeekdayTitleComponent({ actions, dispatch, state, appoin
   }
   return (
     <div
-      className="AppointmentComponent WeekdayTitleComponent"
+      className="AppointmentTimeComponent WeekdayTitleComponent"
       onClick={() => {
         setSelectedWeekHandle(weekday);
       }}

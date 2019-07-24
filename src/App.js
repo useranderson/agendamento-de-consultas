@@ -5,6 +5,7 @@ import reducer from "./store/reducer";
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 import NavbarComponent from "./components/NavbarComponent/NavbarComponent";
 import ScheduleComponent from "./components/ScheduleComponent/ScheduleComponent";
+import AppointmentComponent from "./components/AppointmentComponent/AppointmentComponent";
 
 export default class App extends Component {
   constructor(props) {
@@ -16,12 +17,12 @@ export default class App extends Component {
       finalTime: 18,
       initialTime: 10,
       selectedWeekday: 0,
-      viewOption: 1, // 1: Schedule, 2: Patients, 3: day
+      viewOption: 1, // 1: Schedule, 2: Patients, 3: Appointment
       weekView: true
     };
   }
-  dispatch = newState => {
-    this.setState(reducer(this.state, newState));
+  dispatch = async newState => {
+    await this.setState(reducer(this.state, newState));
   };
   componentWillMount() {
     let day = 1;
@@ -37,7 +38,7 @@ export default class App extends Component {
             week: k,
             day: day,
             month: 1,
-            patient: {}
+            patient: { name: null }
           });
           _id++;
         }
@@ -47,12 +48,24 @@ export default class App extends Component {
     console.log("Ok");
     this.setState({ ...this.state, appointments: appointments });
   }
+  getMainView = option => {
+    switch (option) {
+      case 1:
+        return <ScheduleComponent actions={actions} dispatch={this.dispatch} state={this.state} />;
+      case 3:
+        return (
+          <AppointmentComponent actions={actions} dispatch={this.dispatch} state={this.state} />
+        );
+      default:
+        return null;
+    }
+  };
   render() {
     return (
       <div className="App">
         <HeaderComponent actions={actions} dispatch={this.dispatch} state={this.state} />
         <NavbarComponent actions={actions} dispatch={this.dispatch} state={this.state} />
-        <ScheduleComponent actions={actions} dispatch={this.dispatch} state={this.state} />
+        {this.getMainView(this.state.viewOption)}
       </div>
     );
   }

@@ -13,6 +13,9 @@ export default function reducer(state, action) {
     case "APP_SET_SELECTEDWEEKDAY":
       return { ...state, selectedWeekday: action.selectedWeekday };
     //
+    case "APP_SET_ACTIVEAPPOINTMENT":
+      return { ...state, activeAppointment: action.activeAppointment };
+    //
     default:
       return state;
   }

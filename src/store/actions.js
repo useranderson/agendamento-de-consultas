@@ -10,5 +10,8 @@ export default {
   },
   appSetWeekView: () => {
     return { type: "APP_SET_WEEKVIEW" };
+  },
+  appSetActiveAppointment: activeAppointment => {
+    return { type: "APP_SET_ACTIVEAPPOINTMENT", activeAppointment };
   }
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-import AppointmentComponent from "./AppointmentComponent";
+import AppointmentTimeComponent from "./AppointmentTimeComponent";
 import WeekdayTitleComponent from "./WeekdayTitleComponent";
 
 export default function WeekdayComponent({ actions, dispatch, state, appointments }) {
@@ -21,7 +21,7 @@ export default function WeekdayComponent({ actions, dispatch, state, appointment
       })}
       {appointments.map(appointment => {
         return (
-          <AppointmentComponent
+          <AppointmentTimeComponent
             key={appointment._id}
             actions={actions}
             dispatch={dispatch}
