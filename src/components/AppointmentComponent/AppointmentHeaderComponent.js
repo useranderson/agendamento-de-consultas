@@ -5,7 +5,7 @@ import React from "react";
 export default function AppointmentHeaderComponent({ actions, dispatch, state }) {
   return (
     <div className="AppointmentHeaderComponent">
-      <span>Header</span>
+      <span>Horário</span>
       <button onClick={() => dispatch(actions.appSetViewOption(1))}>X</button>
     </div>
   );

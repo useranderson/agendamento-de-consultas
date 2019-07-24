@@ -13,7 +13,8 @@
   display: flex;
   margin-bottom: 5px;
 }
-.AppointmentComponent-row input {
+.AppointmentComponent-row input,
+select {
   font-size: 12px;
   padding: 5px;
   border: 1px solid lightgrey;
@@ -43,11 +44,31 @@
   height: 20px;
   background-color: transparent;
   border: 1px solid #fff;
-  border-radius: 2px;
+  border-radius: 4px;
   color: #fff;
   line-height: 20px;
   font-weight: bold;
 }
 .AppointmentBodyComponent {
   padding: 10px;
+}
+.AppointmentAddComponent {
+  padding: 10px;
+}
+.AppointmentComponent-row select {
+  color: black;
+}
+.AppointmentAddComponent button {
+  background-color: #57606f;
+  border: none;
+  border-radius: 4px;
+  padding: 6px;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.AppointmentAddComponent .disabled {
+  border: 1px solid #57606f;
+  color: #57606f;
+  background-color: transparent;
 }

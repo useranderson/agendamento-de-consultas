@@ -16,6 +16,27 @@ export default function reducer(state, action) {
     case "APP_SET_ACTIVEAPPOINTMENT":
       return { ...state, activeAppointment: action.activeAppointment };
     //
+    case "APPOINTMENT_SET_SELECTEDPATIENT":
+      const patients = state.patients.filter(patient => {
+        return patient._id === Number(action.patientId);
+      });
+      return { ...state, appointmentSelectedPatient: patients[0] };
+    //
+    case "APPOINTMENT_INSERT_SELECTEDPATIENT":
+      console.log(state);
+      const newAppointments = state.appointments.map(appointment => {
+        if (appointment._id === state.activeAppointment._id) {
+          appointment.patient = state.appointmentSelectedPatient;
+        }
+        return appointment;
+      });
+      return {
+        ...state,
+        appointments: newAppointments,
+        viewOption: 1,
+        appointmentSelectedPatient: {}
+      };
+    //
     default:
       return state;
   }

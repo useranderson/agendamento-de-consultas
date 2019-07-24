@@ -13,10 +13,16 @@ export default class App extends Component {
     this.state = {
       activeWeek: 0,
       activeAppointment: {},
+      appointmentSelectedPatient: {},
       appointments: [],
       finalTime: 18,
       initialTime: 10,
       selectedWeekday: 0,
+      patients: [
+        { _id: 1, name: "Anderson Amorim", note: "Nota do Anderson de Amorim" },
+        { _id: 2, name: "Jessica Calegaro", note: "Nota do Jessica Calegaro" },
+        { _id: 3, name: "Luana Amorim", note: "Nota do Luana de Amorim" }
+      ],
       viewOption: 1, // 1: Schedule, 2: Patients, 3: Appointment
       weekView: true
     };
@@ -45,7 +51,7 @@ export default class App extends Component {
         day++;
       }
     }
-    console.log("Ok");
+
     this.setState({ ...this.state, appointments: appointments });
   }
   getMainView = option => {

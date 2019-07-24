@@ -4,6 +4,8 @@ import "./AppointmentComponent.css";
 
 import AppointmentHeaderComponent from "./AppointmentHeaderComponent";
 import AppointmentBodyComponent from "./AppointmentBodyComponent";
+import AppointmentAddComponent from "./AppointmentAddComponent";
+
 // import { Container } from './styles';
 
 export default function AppointmentComponent({ actions, dispatch, state }) {
@@ -14,6 +16,7 @@ export default function AppointmentComponent({ actions, dispatch, state }) {
     <div className="AppointmentComponent">
       <AppointmentHeaderComponent actions={actions} dispatch={dispatch} state={state} />
       <AppointmentBodyComponent thisAppointment={state.activeAppointment} />
+      <AppointmentAddComponent actions={actions} dispatch={dispatch} state={state} />
     </div>
   );
 }

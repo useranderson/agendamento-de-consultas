@@ -13,5 +13,11 @@ export default {
   },
   appSetActiveAppointment: activeAppointment => {
     return { type: "APP_SET_ACTIVEAPPOINTMENT", activeAppointment };
+  },
+  appointmentSetSelectedPatient: patientId => {
+    return { type: "APPOINTMENT_SET_SELECTEDPATIENT", patientId };
+  },
+  appointmentInsertSelectedPatient: () => {
+    return { type: "APPOINTMENT_INSERT_SELECTEDPATIENT" };
   }
 };
