@@ -59,7 +59,7 @@ select {
 .AppointmentComponent-row select {
   color: black;
 }
-.AppointmentAddComponent button {
+.AppointmentComponent-row button {
   background-color: #57606f;
   border: none;
   border-radius: 4px;
@@ -68,8 +68,11 @@ select {
   font-weight: bold;
   margin-top: 10px;
 }
-.AppointmentAddComponent .disabled {
+.AppointmentComponent-row .disabled {
   border: 1px solid #57606f;
   color: #57606f;
   background-color: transparent;
+}
+.AppointmentPatientComponents {
+  padding: 10px;
 }

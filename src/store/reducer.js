@@ -31,8 +31,17 @@ export default function reducer(state, action) {
         appointmentSelectedPatient: {},
         appointmentLockPatient: false
       };
-
     //
+    case "APP_REMOVE_PATIENTACTIVEAPPOINTMENT":
+      const newAppointments_ = state.appointments.map(appointment => {
+        if (appointment._id === state.activeAppointment._id) {
+          appointment.patient = {};
+        }
+        return appointment;
+      });
+      return { ...state, appointments: newAppointments_ };
+
+    //APP_REMOVE_PATIENTACTIVEAPPOINTMENT
     case "APPOINTMENT_SET_LOCKPATIENT":
       return {
         ...state,

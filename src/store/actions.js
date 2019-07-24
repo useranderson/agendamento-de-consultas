@@ -17,6 +17,9 @@ export default {
   appSetActiveWeek: numChange => {
     return { type: "APP_SET_ACTIVEWEEK", numChange };
   },
+  appRemovePatientActiveAppointment: () => {
+    return { type: "APP_REMOVE_PATIENTACTIVEAPPOINTMENT" };
+  },
   appCloseAppointmentPopup: () => {
     return { type: "APP_CLOSE_APPOINTMENTPOPUP" };
   },
