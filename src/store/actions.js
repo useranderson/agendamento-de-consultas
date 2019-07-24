@@ -14,6 +14,12 @@ export default {
   appSetActiveAppointment: activeAppointment => {
     return { type: "APP_SET_ACTIVEAPPOINTMENT", activeAppointment };
   },
+  appSetActiveWeek: numChange => {
+    return { type: "APP_SET_ACTIVEWEEK", numChange };
+  },
+  appCloseAppointmentPopup: () => {
+    return { type: "APP_CLOSE_APPOINTMENTPOPUP" };
+  },
   appointmentSetSelectedPatient: patientId => {
     return { type: "APPOINTMENT_SET_SELECTEDPATIENT", patientId };
   },

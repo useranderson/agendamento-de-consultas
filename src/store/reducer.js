@@ -16,8 +16,28 @@ export default function reducer(state, action) {
     case "APP_SET_ACTIVEAPPOINTMENT":
       return { ...state, activeAppointment: action.activeAppointment };
     //
+    case "APP_SET_ACTIVEWEEK":
+      if (state.activeWeek + action.numChange >= 0) {
+        return { ...state, activeWeek: state.activeWeek + action.numChange };
+      }
+      return state;
+
+    //
+    case "APP_CLOSE_APPOINTMENTPOPUP":
+      return {
+        ...state,
+        viewOption: 1,
+        activeAppointment: {},
+        appointmentSelectedPatient: {},
+        appointmentLockPatient: false
+      };
+
+    //
     case "APPOINTMENT_SET_LOCKPATIENT":
-      return { ...state, appointmentLockPatient: !state.appointmentLockPatient };
+      return {
+        ...state,
+        appointmentLockPatient: !state.appointmentLockPatient
+      };
     //
     case "APPOINTMENT_SET_SELECTEDPATIENT":
       const patients = state.patients.filter(patient => {

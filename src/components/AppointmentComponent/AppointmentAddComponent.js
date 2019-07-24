@@ -12,6 +12,10 @@ export default function AppointmentAddComponent({ actions, dispatch, state }) {
     }
     return false;
   }
+  async function insertSelectedPatient() {
+    await dispatch(actions.appointmentInsertSelectedPatient());
+    await await dispatch(actions.appCloseAppointmentPopup());
+  }
   const { patients } = state;
   return (
     <div className="AppointmentAddComponent">
@@ -36,15 +40,21 @@ export default function AppointmentAddComponent({ actions, dispatch, state }) {
             );
           })}
         </select>
-        <button onClick={() => dispatch(actions.appointmentSetLockPatient())}>
+        <button
+          onClick={async () =>
+            await dispatch(actions.appointmentSetLockPatient())
+          }
+        >
           {state.appointmentLockPatient ? "Fixo" : "Fixar"}
         </button>
       </div>
       <div className="AppointmentComponent-row">
         <button
           disabled={getConfirmButton(state.appointmentSelectedPatient)}
-          className={getConfirmButton(state.appointmentSelectedPatient) ? "disabled" : ""}
-          onClick={() => dispatch(actions.appointmentInsertSelectedPatient())}
+          className={
+            getConfirmButton(state.appointmentSelectedPatient) ? "disabled" : ""
+          }
+          onClick={async () => insertSelectedPatient()}
         >
           Confirmar
         </button>
