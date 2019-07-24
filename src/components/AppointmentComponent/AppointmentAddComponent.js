@@ -36,6 +36,9 @@ export default function AppointmentAddComponent({ actions, dispatch, state }) {
             );
           })}
         </select>
+        <button onClick={() => dispatch(actions.appointmentSetLockPatient())}>
+          {state.appointmentLockPatient ? "Fixo" : "Fixar"}
+        </button>
       </div>
       <div className="AppointmentComponent-row">
         <button

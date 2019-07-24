@@ -13,6 +13,7 @@ export default class App extends Component {
     this.state = {
       activeWeek: 0,
       activeAppointment: {},
+      appointmentLockPatient: false,
       appointmentSelectedPatient: {},
       appointments: [],
       finalTime: 18,
@@ -44,7 +45,8 @@ export default class App extends Component {
             week: k,
             day: day,
             month: 1,
-            patient: { name: null }
+            patient: {},
+            fixedPatient: {}
           });
           _id++;
         }

@@ -19,5 +19,8 @@ export default {
   },
   appointmentInsertSelectedPatient: () => {
     return { type: "APPOINTMENT_INSERT_SELECTEDPATIENT" };
+  },
+  appointmentSetLockPatient: () => {
+    return { type: "APPOINTMENT_SET_LOCKPATIENT" };
   }
 };

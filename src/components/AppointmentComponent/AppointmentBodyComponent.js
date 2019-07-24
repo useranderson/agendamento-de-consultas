@@ -13,7 +13,8 @@ export default function AppointmentBodyComponent({ thisAppointment }) {
     const weekdaysText = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
     return weekdaysText[weekday];
   }
-  const { day, hour, month, patient, weekday } = thisAppointment;
+  const { day, hour, month, patient, weekday, fixedPatient } = thisAppointment;
+  console.log(thisAppointment);
   return (
     <div className="AppointmentBodyComponent">
       <div className="AppointmentComponent-row">
@@ -26,7 +27,7 @@ export default function AppointmentBodyComponent({ thisAppointment }) {
       </div>
       <div className="AppointmentComponent-row">
         <span>Paciente Fixo:</span>
-        <input type="text" value={normalizePatientName(patient)} readOnly />
+        <input type="text" value={normalizePatientName(fixedPatient)} readOnly />
       </div>
     </div>
   );

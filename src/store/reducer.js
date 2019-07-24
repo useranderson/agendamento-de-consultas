@@ -16,6 +16,9 @@ export default function reducer(state, action) {
     case "APP_SET_ACTIVEAPPOINTMENT":
       return { ...state, activeAppointment: action.activeAppointment };
     //
+    case "APPOINTMENT_SET_LOCKPATIENT":
+      return { ...state, appointmentLockPatient: !state.appointmentLockPatient };
+    //
     case "APPOINTMENT_SET_SELECTEDPATIENT":
       const patients = state.patients.filter(patient => {
         return patient._id === Number(action.patientId);
@@ -24,9 +27,20 @@ export default function reducer(state, action) {
     //
     case "APPOINTMENT_INSERT_SELECTEDPATIENT":
       const newAppointments = state.appointments.map(appointment => {
-        if (appointment._id === state.activeAppointment._id) {
-          appointment.patient = state.appointmentSelectedPatient;
+        if (state.appointmentLockPatient) {
+          if (
+            appointment.hour === state.activeAppointment.hour &&
+            appointment.weekday === state.activeAppointment.weekday
+          ) {
+            appointment.patient = state.appointmentSelectedPatient;
+            appointment.fixedPatient = state.appointmentSelectedPatient;
+          }
+        } else {
+          if (appointment._id === state.activeAppointment._id) {
+            appointment.patient = state.appointmentSelectedPatient;
+          }
         }
+
         return appointment;
       });
       return {
