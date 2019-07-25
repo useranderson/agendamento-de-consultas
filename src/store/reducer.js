@@ -59,7 +59,7 @@ export default function reducer(state, action) {
       });
       return { ...state, appointments: newAppointments__ };
 
-    //APP_REMOVE_PATIENTFIXEDACTIVEAPPOINTMENT
+    //
     case "APPOINTMENT_SET_LOCKPATIENT":
       return {
         ...state,
@@ -71,6 +71,34 @@ export default function reducer(state, action) {
         return patient._id === Number(action.patientId);
       });
       return { ...state, appointmentSelectedPatient: patients[0] };
+    //
+    case "APPOINTMENT_SET_PATIENTSTART":
+      return { ...state, appointmentDragStart: action.appointment };
+    //
+    case "APPOINTMENT_SET_PATIENTENTER":
+      return { ...state, appointmentDragEnter: action.appointment };
+    //
+    case "APPOINTMENT_SET_PATIENTEND":
+      if (state.appointmentDragEnter.patient._id) {
+        return state;
+      }
+      if (state.appointmentDragStart._id === state.appointmentDragEnter._id) {
+        return state;
+      }
+      const newAppointments___ = state.appointments.map(appointment => {
+        if (appointment._id === state.appointmentDragEnter._id) {
+          appointment.patient = state.appointmentDragStart.patient;
+        }
+        return appointment;
+      });
+      const newAppointments____ = newAppointments___.map(appointment => {
+        if (appointment._id === state.appointmentDragStart._id) {
+          appointment.patient = {};
+        }
+
+        return appointment;
+      });
+      return { ...state, appointments: newAppointments____, appointmentDragStart: {},appointmentDragEnter: {} };
     //
     case "APPOINTMENT_INSERT_SELECTEDPATIENT":
       const newAppointments = state.appointments.map(appointment => {

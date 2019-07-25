@@ -9,11 +9,30 @@ export default function AppointmentTimeComponent({
   appointments,
   thisAppointment
 }) {
-  function verifyClassname(patient) {
-    if (!patient._id) {
-      return `AppointmentTimeComponent-Content category0`;
+  async function dragStartHandle(appointment) {
+    await dispatch(actions.appointmentSetPatientStart(appointment));
+  }
+  async function dragEnterHandle(appointment) {
+    await dispatch(actions.appointmentSetPatientEnter(appointment));
+  }
+  async function dragEndHandle(appointment) {
+    await dispatch(actions.appointmentSetPatientEnd());
+  }
+  function verifyDropEnter(appointment, thisAppointment) {
+    if (appointment._id === thisAppointment._id) {
+      return "AppointmentTimeComponent-Content DropEnter";
     }
-    return `AppointmentTimeComponent-Content category${patient._id}`;
+    return "AppointmentTimeComponent-Content";
+  }
+  function verifyClassname(patient) {
+    const AppointmentClassName = verifyDropEnter(
+      state.appointmentDragEnter,
+      thisAppointment
+    );
+    if (!patient._id) {
+      return `${AppointmentClassName} category0`;
+    }
+    return `${AppointmentClassName} category${patient._id}`;
   }
   function normalizePatientName(appointment) {
     if (!appointment.patient.name) {
@@ -27,6 +46,10 @@ export default function AppointmentTimeComponent({
   }
   return (
     <div
+      draggable={true}
+      onDragStart={() => dragStartHandle(thisAppointment)}
+      onDragEnter={() => dragEnterHandle(thisAppointment)}
+      onDragEnd={() => dragEndHandle(thisAppointment)}
       className="AppointmentTimeComponent"
       onClick={() => setShowActiveAppointment(thisAppointment)}
     >

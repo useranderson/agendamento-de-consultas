@@ -33,6 +33,13 @@ export default function AppointmentPatientComponents({
         >
           Remover
         </button>
+        <button
+          onClick={async () =>
+            dispatch(actions.appRemovePatientActiveAppointment())
+          }
+        >
+          Remover
+        </button>
       </div>
     </div>
   );

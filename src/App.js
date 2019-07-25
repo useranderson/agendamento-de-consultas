@@ -14,15 +14,32 @@ export default class App extends Component {
       activeWeek: 0,
       activeAppointment: {},
       appointmentLockPatient: false,
+      appointmentDragStart: {},
+      appointmentDragEnter: {},
       appointmentSelectedPatient: {},
       appointments: [],
       finalTime: 18,
       initialTime: 10,
       selectedWeekday: 0,
       patients: [
-        { _id: 1, name: "Anderson Amorim", note: "Nota do Anderson de Amorim", category: 1 },
-        { _id: 2, name: "Jessica Calegaro", note: "Nota do Jessica Calegaro", category: 2 },
-        { _id: 3, name: "Luana Amorim", note: "Nota do Luana de Amorim", category: 3 }
+        {
+          _id: 1,
+          name: "Anderson Amorim",
+          note: "Nota do Anderson de Amorim",
+          category: 1
+        },
+        {
+          _id: 2,
+          name: "Jessica Calegaro",
+          note: "Nota do Jessica Calegaro",
+          category: 2
+        },
+        {
+          _id: 3,
+          name: "Luana Amorim",
+          note: "Nota do Luana de Amorim",
+          category: 3
+        }
       ],
       viewOption: 1, // 1: Schedule, 2: Patients, 3: Appointment
       weekView: true
@@ -59,10 +76,20 @@ export default class App extends Component {
   getMainView = option => {
     switch (option) {
       case 1:
-        return <ScheduleComponent actions={actions} dispatch={this.dispatch} state={this.state} />;
+        return (
+          <ScheduleComponent
+            actions={actions}
+            dispatch={this.dispatch}
+            state={this.state}
+          />
+        );
       case 3:
         return (
-          <AppointmentComponent actions={actions} dispatch={this.dispatch} state={this.state} />
+          <AppointmentComponent
+            actions={actions}
+            dispatch={this.dispatch}
+            state={this.state}
+          />
         );
       default:
         return null;
@@ -71,8 +98,16 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderComponent actions={actions} dispatch={this.dispatch} state={this.state} />
-        <NavbarComponent actions={actions} dispatch={this.dispatch} state={this.state} />
+        <HeaderComponent
+          actions={actions}
+          dispatch={this.dispatch}
+          state={this.state}
+        />
+        <NavbarComponent
+          actions={actions}
+          dispatch={this.dispatch}
+          state={this.state}
+        />
         {this.getMainView(this.state.viewOption)}
       </div>
     );

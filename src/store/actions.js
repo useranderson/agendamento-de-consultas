@@ -34,5 +34,14 @@ export default {
   },
   appointmentSetLockPatient: () => {
     return { type: "APPOINTMENT_SET_LOCKPATIENT" };
+  },
+  appointmentSetPatientStart: appointment => {
+    return { type: "APPOINTMENT_SET_PATIENTSTART", appointment };
+  },
+  appointmentSetPatientEnter: appointment => {
+    return { type: "APPOINTMENT_SET_PATIENTENTER", appointment };
+  },
+  appointmentSetPatientEnd: () => {
+    return { type: "APPOINTMENT_SET_PATIENTEND" };
   }
 };
