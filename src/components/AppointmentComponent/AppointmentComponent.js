@@ -38,7 +38,12 @@ export default function AppointmentComponent({ actions, dispatch, state }) {
         dispatch={dispatch}
         state={state}
       />
-      <AppointmentBodyComponent thisAppointment={state.activeAppointment} />
+      <AppointmentBodyComponent
+        actions={actions}
+        dispatch={dispatch}
+        state={state}
+        thisAppointment={state.activeAppointment}
+      />
       {verifyPatient(state.activeAppointment.patient)}
     </div>
   );

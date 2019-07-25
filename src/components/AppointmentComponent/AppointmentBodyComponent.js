@@ -2,9 +2,13 @@ import React from "react";
 
 // import { Container } from './styles';
 
-export default function AppointmentBodyComponent({ thisAppointment }) {
+export default function AppointmentBodyComponent({
+  actions,
+  dispatch,
+  thisAppointment
+}) {
   function normalizePatientName(patient) {
-    if (patient.name === null) {
+    if (!patient.name) {
       return "";
     }
     return patient.name;
@@ -36,6 +40,13 @@ export default function AppointmentBodyComponent({ thisAppointment }) {
           value={normalizePatientName(fixedPatient)}
           readOnly
         />
+        <button
+          onClick={() =>
+            dispatch(actions.appRemoveFixedPatientActiveAppointment())
+          }
+        >
+          Remover
+        </button>
       </div>
     </div>
   );

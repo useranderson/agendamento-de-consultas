@@ -40,8 +40,26 @@ export default function reducer(state, action) {
         return appointment;
       });
       return { ...state, appointments: newAppointments_ };
+    //
+    case "APP_REMOVE_PATIENTFIXEDACTIVEAPPOINTMENT":
+      const newAppointments__ = state.appointments.map(appointment => {
+        if (
+          appointment.hour === state.activeAppointment.hour &&
+          appointment.weekday === state.activeAppointment.weekday
+        ) {
+          appointment.fixedPatient = {};
+          if (
+            appointment.month * 100 + appointment.day >=
+            state.activeAppointment.month * 100 + state.activeAppointment.day
+          ) {
+            appointment.patient = {};
+          }
+        }
+        return appointment;
+      });
+      return { ...state, appointments: newAppointments__ };
 
-    //APP_REMOVE_PATIENTACTIVEAPPOINTMENT
+    //APP_REMOVE_PATIENTFIXEDACTIVEAPPOINTMENT
     case "APPOINTMENT_SET_LOCKPATIENT":
       return {
         ...state,

@@ -10,7 +10,16 @@ export default function AppointmentTimeComponent({
   thisAppointment
 }) {
   function verifyClassname(patient) {
+    if (!patient._id) {
+      return `AppointmentTimeComponent-Content category0`;
+    }
     return `AppointmentTimeComponent-Content category${patient._id}`;
+  }
+  function normalizePatientName(appointment) {
+    if (!appointment.patient.name) {
+      return appointment.fixedPatient.name;
+    }
+    return appointment.patient.name;
   }
   async function setShowActiveAppointment(appointment) {
     await dispatch(actions.appSetViewOption(3));
@@ -21,7 +30,9 @@ export default function AppointmentTimeComponent({
       className="AppointmentTimeComponent"
       onClick={() => setShowActiveAppointment(thisAppointment)}
     >
-      <div className={verifyClassname(thisAppointment.patient)}>{thisAppointment.patient.name}</div>
+      <div className={verifyClassname(thisAppointment.patient)}>
+        {normalizePatientName(thisAppointment)}
+      </div>
     </div>
   );
 }

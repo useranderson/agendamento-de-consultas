@@ -20,6 +20,9 @@ export default {
   appRemovePatientActiveAppointment: () => {
     return { type: "APP_REMOVE_PATIENTACTIVEAPPOINTMENT" };
   },
+  appRemoveFixedPatientActiveAppointment: () => {
+    return { type: "APP_REMOVE_PATIENTFIXEDACTIVEAPPOINTMENT" };
+  },
   appCloseAppointmentPopup: () => {
     return { type: "APP_CLOSE_APPOINTMENTPOPUP" };
   },
