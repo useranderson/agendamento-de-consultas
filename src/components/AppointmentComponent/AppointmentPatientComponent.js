@@ -7,6 +7,10 @@ export default function AppointmentPatientComponents({
   dispatch,
   state
 }) {
+  async function activeMovePatient() {
+    await dispatch(actions.appointmentSetPatientStart(state.activeAppointment));
+    await dispatch(actions.appCloseAppointmentPopup());
+  }
   return (
     <div className="AppointmentPatientComponents">
       <div className="AppointmentComponent-row">
@@ -26,13 +30,7 @@ export default function AppointmentPatientComponents({
         />
       </div>
       <div className="AppointmentComponent-row">
-        <button
-          onClick={async () =>
-            dispatch(actions.appRemovePatientActiveAppointment())
-          }
-        >
-          Remover
-        </button>
+        <button onClick={async () => activeMovePatient()}>Mover</button>
         <button
           onClick={async () =>
             dispatch(actions.appRemovePatientActiveAppointment())

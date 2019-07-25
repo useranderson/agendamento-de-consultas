@@ -80,10 +80,18 @@ export default function reducer(state, action) {
     //
     case "APPOINTMENT_SET_PATIENTEND":
       if (state.appointmentDragEnter.patient._id) {
-        return state;
+        return {
+          ...state,
+          appointmentDragStart: {},
+          appointmentDragEnter: {}
+        };
       }
       if (state.appointmentDragStart._id === state.appointmentDragEnter._id) {
-        return state;
+        return {
+          ...state,
+          appointmentDragStart: {},
+          appointmentDragEnter: {}
+        };
       }
       const newAppointments___ = state.appointments.map(appointment => {
         if (appointment._id === state.appointmentDragEnter._id) {
@@ -98,7 +106,12 @@ export default function reducer(state, action) {
 
         return appointment;
       });
-      return { ...state, appointments: newAppointments____, appointmentDragStart: {},appointmentDragEnter: {} };
+      return {
+        ...state,
+        appointments: newAppointments____,
+        appointmentDragStart: {},
+        appointmentDragEnter: {}
+      };
     //
     case "APPOINTMENT_INSERT_SELECTEDPATIENT":
       const newAppointments = state.appointments.map(appointment => {

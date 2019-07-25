@@ -41,8 +41,13 @@ export default function AppointmentTimeComponent({
     return appointment.patient.name;
   }
   async function setShowActiveAppointment(appointment) {
-    await dispatch(actions.appSetViewOption(3));
-    await dispatch(actions.appSetActiveAppointment(appointment));
+    if (!state.appointmentDragStart._id) {
+      await dispatch(actions.appSetViewOption(3));
+      await dispatch(actions.appSetActiveAppointment(appointment));
+      return null;
+    }
+    await dispatch(actions.appointmentSetPatientEnter(appointment));
+    await dispatch(actions.appointmentSetPatientEnd());
   }
   return (
     <div
