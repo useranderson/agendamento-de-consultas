@@ -2,22 +2,22 @@ import React from "react";
 
 import "./HeaderComponent.css";
 import calendarImage from "../../images/calendarImage.png";
+import patientsImage from "../../images/patientsImage.png";
 
 export default function HeaderComponent({ actions, dispatch, state }) {
-  function getHeaderTitle(state) {
-    if (state.viewOption === 1) {
-      return "Agenda";
-    }
+  function getHeaderOptions(state) {
     if (state.viewOption === 2) {
-      return "Contatos";
+      return { title: "Contatos", changeNumber: 1, image: calendarImage };
     }
-    return "Agenda";
+    return { title: "Agenda", changeNumber: 2, image: patientsImage };
   }
+  const headerOptions = getHeaderOptions(state);
+
   return (
     <div className="HeaderComponent">
-      <span>{getHeaderTitle(state)}</span>
-      <button onClick={() => dispatch(actions.appSetViewOption(2))}>
-        <img src={calendarImage} alt="Mudar visão" />
+      <span>{headerOptions.title}</span>
+      <button onClick={() => dispatch(actions.appSetViewOption(headerOptions.changeNumber))}>
+        <img src={headerOptions.image} alt="Mudar visão" />
       </button>
     </div>
   );
