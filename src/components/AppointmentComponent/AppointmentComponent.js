@@ -2,7 +2,7 @@ import React from "react";
 
 import "./AppointmentComponent.css";
 
-import AppointmentHeaderComponent from "./AppointmentHeaderComponent";
+import PopupHeader from "../Commons/PopupHeader";
 import AppointmentBodyComponent from "./AppointmentBodyComponent";
 import AppointmentAddComponent from "./AppointmentAddComponent";
 import AppointmentPatientComponent from "./AppointmentPatientComponent";
@@ -33,10 +33,12 @@ export default function AppointmentComponent({ actions, dispatch, state }) {
   }
   return (
     <div className="AppointmentComponent">
-      <AppointmentHeaderComponent
+      <PopupHeader
         actions={actions}
         dispatch={dispatch}
         state={state}
+        title="Horário"
+        closeOption={1}
       />
       <AppointmentBodyComponent
         actions={actions}

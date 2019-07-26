@@ -5,16 +5,18 @@ import React from "react";
 export default function AppointmentHeaderComponent({
   actions,
   dispatch,
-  state
+  state,
+  closeOption,
+  title
 }) {
   async function closeAppointmentPopup() {
     await dispatch(actions.appCloseAppointmentPopup());
-    await dispatch(actions.appSetViewOption(1));
+    await dispatch(actions.appSetViewOption(closeOption));
   }
 
   return (
     <div className="AppointmentHeaderComponent">
-      <span>Horário</span>
+      <span>{title}</span>
       <button onClick={() => closeAppointmentPopup()}>X</button>
     </div>
   );

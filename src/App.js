@@ -6,6 +6,7 @@ import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 import ScheduleComponent from "./components/ScheduleComponent/ScheduleComponent";
 import AppointmentComponent from "./components/AppointmentComponent/AppointmentComponent";
 import PatientComponent from "./components/PatientComponent/PatientComponent";
+import PatientPopupComponent from "./components/PatientPopupComponent/PatientPopupComponent";
 
 export default class App extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ export default class App extends Component {
           category: 3
         }
       ],
-      viewOption: 2, // 1: Schedule, 2: Patients, 3: Appointment
+      viewOption: 4, // 1: Schedule, 2: Patients, 3: Appointment
       weekView: true,
       weekTouchStartX: 0,
       weekTouchMoveX: 0
@@ -105,9 +106,17 @@ export default class App extends Component {
             state={this.state}
           />
         );
+      case 4:
+        return (
+          <PatientPopupComponent
+            actions={actions}
+            dispatch={this.dispatch}
+            state={this.state}
+          />
+        );
       default:
         return null;
-    }
+    } //
   };
   render() {
     return (
