@@ -41,14 +41,17 @@
   color: lightgrey;
 }
 .category1 {
-  height: 99%;
   background-color: #ecf0f1;
   border: 1px solid #7f8c8d;
   border-radius: 2px;
 }
 .category2 {
-  height: 99%;
-  background-color: #ffda79;
+  background-color: #dafde8;
+  border: 1px solid #219250;
+  border-radius: 2px;
+}
+.category3 {
+  background-color: #fdf1d4;
   border: 1px solid #cc8e35;
   border-radius: 2px;
 }

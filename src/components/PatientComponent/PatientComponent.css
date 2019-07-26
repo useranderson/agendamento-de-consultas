@@ -1,0 +1,13 @@
+.PatientComponentCard {
+  border-bottom: 1px solid lightgrey;
+  padding: 10px;
+}
+.PatientComponentCardFirstrow {
+  display: flex;
+  align-items: center;
+}
+.PatientComponentCardFirstrow div {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}

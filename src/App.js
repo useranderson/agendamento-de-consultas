@@ -5,6 +5,7 @@ import reducer from "./store/reducer";
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 import ScheduleComponent from "./components/ScheduleComponent/ScheduleComponent";
 import AppointmentComponent from "./components/AppointmentComponent/AppointmentComponent";
+import PatientComponent from "./components/PatientComponent/PatientComponent";
 
 export default class App extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ export default class App extends Component {
           category: 3
         }
       ],
-      viewOption: 1, // 1: Schedule, 2: Patients, 3: Appointment
+      viewOption: 2, // 1: Schedule, 2: Patients, 3: Appointment
       weekView: true
     };
   }
@@ -76,6 +77,8 @@ export default class App extends Component {
     switch (option) {
       case 1:
         return <ScheduleComponent actions={actions} dispatch={this.dispatch} state={this.state} />;
+      case 2:
+        return <PatientComponent actions={actions} dispatch={this.dispatch} state={this.state} />;
       case 3:
         return (
           <AppointmentComponent actions={actions} dispatch={this.dispatch} state={this.state} />
