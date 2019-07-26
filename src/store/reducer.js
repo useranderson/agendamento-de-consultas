@@ -139,6 +139,9 @@ export default function reducer(state, action) {
       };
     //
     case "PATIENT_SET_ACTIVEPATIENT":
+      if (state.activePatient._id === action.patient._id) {
+        return { ...state, activePatient: {} };
+      }
       return { ...state, activePatient: action.patient };
     //
     default:

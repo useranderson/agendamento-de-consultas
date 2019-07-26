@@ -7,7 +7,7 @@ import PatientDetailComponent from "./PatientDetailComponent";
 export default function PatientListComponent({ actions, dispatch, state }) {
   function verifyPatientDetail(activePatient, patient) {
     if (activePatient._id === patient._id) {
-      return <PatientDetailComponent />;
+      return <PatientDetailComponent patient={patient} />;
     }
     return null;
   }
@@ -15,11 +15,11 @@ export default function PatientListComponent({ actions, dispatch, state }) {
     <div className="PatientListComponent">
       {state.patients.map(patient => {
         return (
-          <div
-            className="PatientComponentCard"
-            onClick={() => dispatch(actions.patientSetActivePatient(patient))}
-          >
-            <div className="PatientComponentCardFirstrow">
+          <div className="PatientComponentCard">
+            <div
+              className="PatientComponentCardFirstrow"
+              onClick={() => dispatch(actions.patientSetActivePatient(patient))}
+            >
               <div className={`category${patient.category}`} />
               <span>{patient.name}</span>
             </div>

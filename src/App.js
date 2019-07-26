@@ -26,18 +26,21 @@ export default class App extends Component {
         {
           _id: 1,
           name: "Anderson Amorim",
+          contact: "(21) 9 8146-5003",
           note: "Nota do Anderson de Amorim",
           category: 1
         },
         {
           _id: 2,
           name: "Jessica Calegaro",
+          contact: "(21) 9 8146-5003",
           note: "Nota do Jessica Calegaro",
           category: 2
         },
         {
           _id: 3,
           name: "Luana Amorim",
+          contact: "(21) 9 8146-5003",
           note: "Nota do Luana de Amorim",
           category: 3
         }
