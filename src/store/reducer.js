@@ -144,6 +144,24 @@ export default function reducer(state, action) {
       }
       return { ...state, activePatient: action.patient };
     //
+    case "SCHEDULE_SET_TOUCHSTARTX":
+      return { ...state, weekTouchStartX: action.x };
+    //
+    case "SCHEDULE_SET_TOUCHMOVEX":
+      return { ...state, weekTouchMoveX: action.x };
+    //
+    case "SCHEDULE_SET_TOUCHENDX":
+      if (state.weekTouchStartX - state.weekTouchMoveX > 100) {
+        return { ...state, activeWeek: state.activeWeek + 1 };
+      }
+      if (
+        state.weekTouchStartX - state.weekTouchMoveX < -100 &&
+        state.activeWeek > 0
+      ) {
+        return { ...state, activeWeek: state.activeWeek - 1 };
+      }
+      return state;
+    //
     default:
       return state;
   }

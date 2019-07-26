@@ -46,7 +46,9 @@ export default class App extends Component {
         }
       ],
       viewOption: 2, // 1: Schedule, 2: Patients, 3: Appointment
-      weekView: true
+      weekView: true,
+      weekTouchStartX: 0,
+      weekTouchMoveX: 0
     };
   }
   dispatch = async newState => {
@@ -80,12 +82,28 @@ export default class App extends Component {
   getMainView = option => {
     switch (option) {
       case 1:
-        return <ScheduleComponent actions={actions} dispatch={this.dispatch} state={this.state} />;
+        return (
+          <ScheduleComponent
+            actions={actions}
+            dispatch={this.dispatch}
+            state={this.state}
+          />
+        );
       case 2:
-        return <PatientComponent actions={actions} dispatch={this.dispatch} state={this.state} />;
+        return (
+          <PatientComponent
+            actions={actions}
+            dispatch={this.dispatch}
+            state={this.state}
+          />
+        );
       case 3:
         return (
-          <AppointmentComponent actions={actions} dispatch={this.dispatch} state={this.state} />
+          <AppointmentComponent
+            actions={actions}
+            dispatch={this.dispatch}
+            state={this.state}
+          />
         );
       default:
         return null;
@@ -94,7 +112,11 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderComponent actions={actions} dispatch={this.dispatch} state={this.state} />
+        <HeaderComponent
+          actions={actions}
+          dispatch={this.dispatch}
+          state={this.state}
+        />
         {this.getMainView(this.state.viewOption)}
       </div>
     );

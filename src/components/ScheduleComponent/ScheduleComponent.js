@@ -9,7 +9,16 @@ export default function ScheduleComponent({ actions, dispatch, state }) {
   return (
     <>
       <NavbarComponent actions={actions} dispatch={dispatch} state={state} />
-      <div className="ScheduleComponent">
+      <div
+        className="ScheduleComponent"
+        onTouchStart={event =>
+          dispatch(actions.scheduleSetTouchStartX(event.touches[0].pageX))
+        }
+        onTouchMove={event =>
+          dispatch(actions.scheduleSetTouchMoveX(event.touches[0].pageX))
+        }
+        onTouchEnd={() => dispatch(actions.scheduleSetTouchEndX())}
+      >
         <WeekComponent
           actions={actions}
           dispatch={dispatch}

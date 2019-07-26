@@ -15,7 +15,7 @@ export default function PatientListComponent({ actions, dispatch, state }) {
     <div className="PatientListComponent">
       {state.patients.map(patient => {
         return (
-          <div className="PatientComponentCard">
+          <div key={patient._id} className="PatientComponentCard">
             <div
               className="PatientComponentCardFirstrow"
               onClick={() => dispatch(actions.patientSetActivePatient(patient))}

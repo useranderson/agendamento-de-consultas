@@ -46,5 +46,14 @@ export default {
   },
   patientSetActivePatient: patient => {
     return { type: "PATIENT_SET_ACTIVEPATIENT", patient };
+  },
+  scheduleSetTouchStartX: x => {
+    return { type: "SCHEDULE_SET_TOUCHSTARTX", x };
+  },
+  scheduleSetTouchMoveX: x => {
+    return { type: "SCHEDULE_SET_TOUCHMOVEX", x };
+  },
+  scheduleSetTouchEndX: () => {
+    return { type: "SCHEDULE_SET_TOUCHENDX" };
   }
 };
