@@ -6,7 +6,12 @@ import "./PatientComponent.css";
 export default function PatientComponent({ actions, dispatch, state }) {
   return (
     <div className="PatientComponent">
-      <PatientListComponent actions={actions} dispatch={dispatch} state={state} />
+      <button className="PatientComponentFloatButton">+</button>
+      <PatientListComponent
+        actions={actions}
+        dispatch={dispatch}
+        state={state}
+      />
     </div>
   );
 }
