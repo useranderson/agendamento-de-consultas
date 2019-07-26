@@ -43,5 +43,8 @@ export default {
   },
   appointmentSetPatientEnd: () => {
     return { type: "APPOINTMENT_SET_PATIENTEND" };
+  },
+  patientSetActivePatient: patient => {
+    return { type: "PATIENT_SET_ACTIVEPATIENT", patient };
   }
 };

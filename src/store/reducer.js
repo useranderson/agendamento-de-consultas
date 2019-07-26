@@ -138,6 +138,9 @@ export default function reducer(state, action) {
         appointmentSelectedPatient: {}
       };
     //
+    case "PATIENT_SET_ACTIVEPATIENT":
+      return { ...state, activePatient: action.patient };
+    //
     default:
       return state;
   }

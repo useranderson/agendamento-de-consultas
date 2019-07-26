@@ -13,9 +13,10 @@ export default class App extends Component {
     this.state = {
       activeWeek: 0,
       activeAppointment: {},
-      appointmentLockPatient: false,
+      activePatient: {},
       appointmentDragStart: {},
       appointmentDragEnter: {},
+      appointmentLockPatient: false,
       appointmentSelectedPatient: {},
       appointments: [],
       finalTime: 18,

@@ -11,3 +11,22 @@
   height: 10px;
   margin-right: 10px;
 }
+.PatientDetailComponent {
+  padding: 10px;
+}
+.PatientDetailComponentRow {
+  padding: 5px;
+  display: flex;
+}
+.PatientDetailComponentRow span {
+  font-weight: bold;
+  width: 100px;
+  display: inline-block;
+}
+.PatientDetailComponentRow input {
+  padding: 2px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+}

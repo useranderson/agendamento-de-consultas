@@ -1,20 +1,12 @@
 import React from "react";
 
+import PatientListComponent from "./PatientListComponent";
 import "./PatientComponent.css";
 
 export default function PatientComponent({ actions, dispatch, state }) {
   return (
     <div className="PatientComponent">
-      {state.patients.map(patient => {
-        return (
-          <div className="PatientComponentCard">
-            <div className="PatientComponentCardFirstrow">
-              <div className={`category${patient.category}`} />
-              <span>{patient.name}</span>
-            </div>
-          </div>
-        );
-      })}
+      <PatientListComponent actions={actions} dispatch={dispatch} state={state} />
     </div>
   );
 }
