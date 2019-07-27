@@ -30,7 +30,6 @@
   border: 1px solid lightgrey;
   border-radius: 4px;
   font-size: 12px;
-  color: rgb(92, 89, 89);
 }
 .PatientDetailComponentRow textarea {
   padding: 4px;
@@ -39,7 +38,6 @@
   border: 1px solid lightgrey;
   border-radius: 4px;
   font-size: 12px;
-  color: rgb(92, 89, 89);
 }
 .PatientComponentFloatButton {
   height: 50px;
@@ -52,4 +50,10 @@
   position: fixed;
   right: 10px;
   bottom: 10px;
+}
+.patientEdited {
+  color: black;
+}
+.patientNoEdited {
+  color: rgb(92, 89, 89);
 }

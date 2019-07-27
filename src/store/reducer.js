@@ -187,17 +187,23 @@ export default function reducer(state, action) {
       };
     //
     case "NEWPATIENT_INSERT_PATIENT":
-      
       const normalizeCategory = !state.newPatient.category
         ? 1
         : state.newPatient.category + 1;
-       
+
       const newPatient = state.newPatient;
       newPatient._id = state.patients.length + 1;
       newPatient.category = normalizeCategory;
       return {
         ...state,
         patients: [...state.patients, newPatient]
+      };
+    //
+    case "PATIENT_SET_EDITPATIENT":
+      console.log(action.patient)
+      return {
+        ...state,
+        editPatient: action.patient
       };
     //
     default:

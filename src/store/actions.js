@@ -70,5 +70,8 @@ export default {
   },
   newPatientInsertPatient: () => {
     return { type: "NEWPATIENT_INSERT_PATIENT" };
+  },
+  patientSetEditPatient: patient => {
+    return { type: "PATIENT_SET_EDITPATIENT", patient };
   }
 };

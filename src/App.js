@@ -20,6 +20,7 @@ export default class App extends Component {
       appointmentLockPatient: false,
       appointmentSelectedPatient: {},
       appointments: [],
+      editPatient: {},
       finalTime: 18,
       initialTime: 10,
       newPatient: {},

@@ -60,7 +60,8 @@ textarea {
 .AppointmentComponent-row select {
   color: black;
 }
-.AppointmentComponent-row button {
+.AppointmentComponent-row button,
+.normalButton {
   background-color: #57606f;
   border: none;
   border-radius: 4px;

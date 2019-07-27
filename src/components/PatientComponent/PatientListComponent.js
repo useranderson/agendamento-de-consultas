@@ -7,7 +7,14 @@ import PatientDetailComponent from "./PatientDetailComponent";
 export default function PatientListComponent({ actions, dispatch, state }) {
   function verifyPatientDetail(activePatient, patient) {
     if (activePatient._id === patient._id) {
-      return <PatientDetailComponent patient={patient} />;
+      return (
+        <PatientDetailComponent
+          actions={actions}
+          dispatch={dispatch}
+          state={state}
+          patient={patient}
+        />
+      );
     }
     return null;
   }
