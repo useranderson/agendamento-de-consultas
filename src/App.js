@@ -22,7 +22,7 @@ export default class App extends Component {
       appointments: [],
       finalTime: 18,
       initialTime: 10,
-      selectedWeekday: 0,
+      newPatient: {},
       patients: [
         {
           _id: 1,
@@ -46,7 +46,8 @@ export default class App extends Component {
           category: 3
         }
       ],
-      viewOption: 4, // 1: Schedule, 2: Patients, 3: Appointment
+      selectedWeekday: 0,
+      viewOption: 1, // 1: Schedule, 2: Patients, 3: Appointment
       weekView: true,
       weekTouchStartX: 0,
       weekTouchMoveX: 0

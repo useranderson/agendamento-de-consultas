@@ -162,6 +162,44 @@ export default function reducer(state, action) {
       }
       return state;
     //
+    case "NEWPATIENT_SET_PATIENTNAME":
+      return {
+        ...state,
+        newPatient: { ...state.newPatient, name: action.name }
+      };
+    //
+    case "NEWPATIENT_SET_PATIENTCONTACT":
+      return {
+        ...state,
+        newPatient: { ...state.newPatient, contact: action.contact }
+      };
+    //
+    case "NEWPATIENT_SET_PATIENTCATEGORY":
+      return {
+        ...state,
+        newPatient: { ...state.newPatient, category: action.category }
+      };
+    //
+    case "NEWPATIENT_SET_PATIENTNOTE":
+      return {
+        ...state,
+        newPatient: { ...state.newPatient, note: action.note }
+      };
+    //
+    case "NEWPATIENT_INSERT_PATIENT":
+      
+      const normalizeCategory = !state.newPatient.category
+        ? 1
+        : state.newPatient.category + 1;
+       
+      const newPatient = state.newPatient;
+      newPatient._id = state.patients.length + 1;
+      newPatient.category = normalizeCategory;
+      return {
+        ...state,
+        patients: [...state.patients, newPatient]
+      };
+    //
     default:
       return state;
   }

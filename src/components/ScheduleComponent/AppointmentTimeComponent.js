@@ -29,10 +29,11 @@ export default function AppointmentTimeComponent({
       state.appointmentDragEnter,
       thisAppointment
     );
+
     if (!patient._id) {
       return `${AppointmentClassName} category0`;
     }
-    return `${AppointmentClassName} category${patient._id}`;
+    return `${AppointmentClassName} category${patient.category}`;
   }
   function normalizePatientName(appointment) {
     if (!appointment.patient.name) {

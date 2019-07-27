@@ -15,7 +15,8 @@
   margin-bottom: 5px;
 }
 .AppointmentComponent-row input,
-select {
+select,
+textarea {
   font-size: 12px;
   padding: 5px;
   border: 1px solid lightgrey;

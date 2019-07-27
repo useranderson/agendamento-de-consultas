@@ -55,5 +55,20 @@ export default {
   },
   scheduleSetTouchEndX: () => {
     return { type: "SCHEDULE_SET_TOUCHENDX" };
+  },
+  newPatientSetPatientName: name => {
+    return { type: "NEWPATIENT_SET_PATIENTNAME", name };
+  },
+  newPatientSetPatientContact: contact => {
+    return { type: "NEWPATIENT_SET_PATIENTCONTACT", contact };
+  },
+  newPatientSetPatientCategory: category => {
+    return { type: "NEWPATIENT_SET_PATIENTCATEGORY", category: category + 1 };
+  },
+  newPatientSetPatientNote: note => {
+    return { type: "NEWPATIENT_SET_PATIENTNOTE", note };
+  },
+  newPatientInsertPatient: () => {
+    return { type: "NEWPATIENT_INSERT_PATIENT" };
   }
 };

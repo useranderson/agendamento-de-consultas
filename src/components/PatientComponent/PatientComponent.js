@@ -6,7 +6,12 @@ import "./PatientComponent.css";
 export default function PatientComponent({ actions, dispatch, state }) {
   return (
     <div className="PatientComponent">
-      <button className="PatientComponentFloatButton">+</button>
+      <button
+        className="PatientComponentFloatButton"
+        onClick={() => dispatch(actions.appSetViewOption(4))}
+      >
+        +
+      </button>
       <PatientListComponent
         actions={actions}
         dispatch={dispatch}
