@@ -1,12 +1,8 @@
 import React from "react";
 
-// import { Container } from './styles';
+import Button from "../Commons/Button";
 
-export default function AppointmentPatientComponents({
-  actions,
-  dispatch,
-  state
-}) {
+export default function AppointmentPatientComponents({ actions, dispatch, state }) {
   async function activeMovePatient() {
     await dispatch(actions.appointmentSetPatientStart(state.activeAppointment));
     await dispatch(actions.appCloseAppointmentPopup());
@@ -15,29 +11,19 @@ export default function AppointmentPatientComponents({
     <div className="AppointmentPatientComponents">
       <div className="AppointmentComponent-row">
         <span>Paciente:</span>
-        <input
-          type="text"
-          value={`${state.activeAppointment.patient.name}`}
-          readOnly
-        />
+        <input type="text" value={`${state.activeAppointment.patient.name}`} readOnly />
       </div>
       <div className="AppointmentComponent-row">
         <span>Anotação:</span>
-        <input
-          type="text"
-          value={`${state.activeAppointment.patient.note}`}
-          readOnly
-        />
+        <input type="text" value={`${state.activeAppointment.patient.note}`} readOnly />
       </div>
       <div className="AppointmentComponent-row">
-        <button onClick={async () => activeMovePatient()}>Mover</button>
-        <button
-          onClick={async () =>
-            dispatch(actions.appRemovePatientActiveAppointment())
-          }
-        >
-          Remover
-        </button>
+        <Button text="Mover" onClickFunc={async () => activeMovePatient()} />
+        <Button
+          text="Remover"
+          redStyle={true}
+          onClickFunc={async () => dispatch(actions.appRemovePatientActiveAppointment())}
+        />
       </div>
     </div>
   );

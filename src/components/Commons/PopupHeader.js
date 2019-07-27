@@ -1,6 +1,6 @@
 import React from "react";
 
-// import { Container } from './styles';
+import CloseButton from "./CloseButton";
 
 export default function AppointmentHeaderComponent({
   actions,
@@ -17,7 +17,7 @@ export default function AppointmentHeaderComponent({
   return (
     <div className="AppointmentHeaderComponent">
       <span>{title}</span>
-      <button onClick={() => closeAppointmentPopup()}>X</button>
+      <CloseButton onClickFunc={() => closeAppointmentPopup()} />
     </div>
   );
 }

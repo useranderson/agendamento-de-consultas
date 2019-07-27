@@ -1,0 +1,13 @@
+.closeButton {
+  height: 30px;
+  width: 30px;
+  line-height: 20px;
+  font-size: 24px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  color: #fff;
+}
+.closeButton:hover {
+  background-color: #3e4450;
+}

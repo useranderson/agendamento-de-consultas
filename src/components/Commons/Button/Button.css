@@ -18,3 +18,14 @@
 .disabledButton:hover {
   background-color: transparent;
 }
+.invertedMarginButton {
+  margin-right: 0px;
+  margin-left: 10px;
+}
+.redStyleButton {
+  background-color: #ff5252;
+  border: 1px solid #b43c3c;
+}
+.redStyleButton:hover {
+  background-color: #b43c3c;
+}

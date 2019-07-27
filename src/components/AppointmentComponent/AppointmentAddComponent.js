@@ -40,13 +40,11 @@ export default function AppointmentAddComponent({ actions, dispatch, state }) {
             );
           })}
         </select>
-        <button
-          onClick={async () =>
-            await dispatch(actions.appointmentSetLockPatient())
-          }
-        >
-          {state.appointmentLockPatient ? "Fixo" : "Fixar"}
-        </button>
+        <Button
+          text={state.appointmentLockPatient ? "Fixo" : "Fixar"}
+          invertedMargin={true}
+          onClickFunc={async () => await dispatch(actions.appointmentSetLockPatient())}
+        />
       </div>
       <div className="AppointmentComponent-row">
         <Button

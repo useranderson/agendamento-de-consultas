@@ -2,11 +2,7 @@ import React from "react";
 
 import Button from "../Commons/Button";
 
-export default function AppointmentBodyComponent({
-  actions,
-  dispatch,
-  thisAppointment
-}) {
+export default function AppointmentBodyComponent({ actions, dispatch, thisAppointment }) {
   function normalizePatientName(patient) {
     if (!patient.name) {
       return "";
@@ -18,16 +14,13 @@ export default function AppointmentBodyComponent({
     return weekdaysText[weekday];
   }
   const { day, hour, month, weekday, fixedPatient } = thisAppointment;
+  const verifyFixedPatient = !fixedPatient._id ? true : false;
 
   return (
     <div className="AppointmentBodyComponent">
       <div className="AppointmentComponent-row">
         <span>Data:</span>
-        <input
-          type="text"
-          value={`${weekdayNumToText(weekday)} ${day}/${month}/2019`}
-          readOnly
-        />
+        <input type="text" value={`${weekdayNumToText(weekday)} ${day}/${month}/2019`} readOnly />
       </div>
       <div className="AppointmentComponent-row">
         <span>Horário:</span>
@@ -35,16 +28,12 @@ export default function AppointmentBodyComponent({
       </div>
       <div className="AppointmentComponent-row">
         <span>Paciente Fixo:</span>
-        <input
-          type="text"
-          value={normalizePatientName(fixedPatient)}
-          readOnly
-        />
+        <input type="text" value={normalizePatientName(fixedPatient)} readOnly />
         <Button
           text="Remover"
-          onClickFunc={() =>
-            dispatch(actions.appRemoveFixedPatientActiveAppointment())
-          }
+          invertedMargin={true}
+          disabled={verifyFixedPatient}
+          onClickFunc={() => dispatch(actions.appRemoveFixedPatientActiveAppointment())}
         />
       </div>
     </div>
