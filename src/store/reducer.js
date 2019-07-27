@@ -200,7 +200,7 @@ export default function reducer(state, action) {
       };
     //
     case "PATIENT_SET_EDITPATIENT":
-      console.log(action.patient)
+      
       return {
         ...state,
         editPatient: action.patient

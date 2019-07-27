@@ -1,5 +1,7 @@
 import React from "react";
 
+import Button from "../Commons/Button";
+
 // import { Container } from './styles';
 
 export default function PatientPopupBodyComponent({
@@ -62,7 +64,7 @@ export default function PatientPopupBodyComponent({
         />
       </div>
       <div className="AppointmentComponent-row">
-        <button onClick={() => insertNewPatient()}>Confirmar</button>
+        <Button text="Confirmar" onClickFunc={() => insertNewPatient()} />
       </div>
     </div>
   );

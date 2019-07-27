@@ -1,6 +1,6 @@
 import React from "react";
 
-// import { Container } from './styles';
+import Button from "../Commons/Button";
 
 export default function AppointmentBodyComponent({
   actions,
@@ -40,13 +40,12 @@ export default function AppointmentBodyComponent({
           value={normalizePatientName(fixedPatient)}
           readOnly
         />
-        <button
-          onClick={() =>
+        <Button
+          text="Remover"
+          onClickFunc={() =>
             dispatch(actions.appRemoveFixedPatientActiveAppointment())
           }
-        >
-          Remover
-        </button>
+        />
       </div>
     </div>
   );

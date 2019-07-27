@@ -1,6 +1,6 @@
 import React from "react";
 
-// import { Container } from './styles';
+import Button from "../Commons/Button";
 
 export default function AppointmentAddComponent({ actions, dispatch, state }) {
   function selectOnClick(event) {
@@ -49,15 +49,11 @@ export default function AppointmentAddComponent({ actions, dispatch, state }) {
         </button>
       </div>
       <div className="AppointmentComponent-row">
-        <button
+        <Button
           disabled={getConfirmButton(state.appointmentSelectedPatient)}
-          className={
-            getConfirmButton(state.appointmentSelectedPatient) ? "disabled" : ""
-          }
-          onClick={async () => insertSelectedPatient()}
-        >
-          Confirmar
-        </button>
+          text="Confirmar"
+          onClickFunc={async () => insertSelectedPatient()}
+        />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 
-// import { Container } from './styles';
+import Button from "../Commons/Button";
 
 export default function PatientDetailComponent({
   actions,
@@ -12,30 +12,21 @@ export default function PatientDetailComponent({
   const getEditClasse = getReadOnly ? "patientNoEdited" : "patientEdited";
   async function cancelEditPatient() {
     await dispatch(actions.patientSetEditPatient({}));
-    await  dispatch(actions.patientSetActivePatient({}));
+    await dispatch(actions.patientSetActivePatient({}));
   }
   function verifyButtons(getReadOnly) {
     if (getReadOnly) {
       return (
-        <button
-          className="normalButton"
-          onClick={() => dispatch(actions.patientSetEditPatient(patient))}
-        >
-          Editar
-        </button>
+        <Button
+          text="Editar"
+          onClickFunc={() => dispatch(actions.patientSetEditPatient(patient))}
+        />
       );
     }
     return (
       <>
-        <button
-          className="normalButton"
-          onClick={() => dispatch(actions.patientSetEditPatient(patient))}
-        >
-          Confirmar
-        </button>
-        <button className="normalButton" onClick={() => cancelEditPatient()}>
-          Cancelar
-        </button>
+        <Button text="Confirmar" onClickFunc={() => null} />
+        <Button text="Cancelar" onClickFunc={() => cancelEditPatient()} />
       </>
     );
   }
