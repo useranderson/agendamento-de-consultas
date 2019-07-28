@@ -73,5 +73,17 @@ export default {
   },
   patientSetEditPatient: patient => {
     return { type: "PATIENT_SET_EDITPATIENT", patient };
+  },
+  patientSetEditPatientContact: contact => {
+    return { type: "PATIENT_SET_EDITPATIENTCONTACT", contact };
+  },
+  patientSetEditPatientCategory: category => {
+    return { type: "PATIENT_SET_EDITPATIENTCATEGORY", category };
+  },
+  patientSetEditPatientNote: note => {
+    return { type: "PATIENT_SET_EDITPATIENTNOTE", note };
+  },
+  patientInsertEditPatient: () => {
+    return { type: "PATIENT_INSERT_EDITPATIENT" };
   }
 };

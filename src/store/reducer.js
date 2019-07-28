@@ -154,10 +154,7 @@ export default function reducer(state, action) {
       if (state.weekTouchStartX - state.weekTouchMoveX > 100) {
         return { ...state, activeWeek: state.activeWeek + 1 };
       }
-      if (
-        state.weekTouchStartX - state.weekTouchMoveX < -100 &&
-        state.activeWeek > 0
-      ) {
+      if (state.weekTouchStartX - state.weekTouchMoveX < -100 && state.activeWeek > 0) {
         return { ...state, activeWeek: state.activeWeek - 1 };
       }
       return state;
@@ -187,9 +184,7 @@ export default function reducer(state, action) {
       };
     //
     case "NEWPATIENT_INSERT_PATIENT":
-      const normalizeCategory = !state.newPatient.category
-        ? 1
-        : state.newPatient.category + 1;
+      const normalizeCategory = !state.newPatient.category ? 1 : state.newPatient.category + 1;
 
       const newPatient = state.newPatient;
       newPatient._id = state.patients.length + 1;
@@ -200,13 +195,50 @@ export default function reducer(state, action) {
       };
     //
     case "PATIENT_SET_EDITPATIENT":
-      
       return {
         ...state,
         editPatient: action.patient
+      };
+    //
+    case "PATIENT_SET_EDITPATIENTCONTACT":
+      return {
+        ...state,
+        editPatient: { ...state.editPatient, contact: action.contact }
+      };
+    //
+    case "PATIENT_SET_EDITPATIENTCATEGORY":
+      return {
+        ...state,
+        editPatient: { ...state.editPatient, category: action.category }
+      };
+    //
+    case "PATIENT_SET_EDITPATIENTNOTE":
+      return {
+        ...state,
+        editPatient: { ...state.editPatient, note: action.note }
+      };
+    //
+    case "PATIENT_INSERT_EDITPATIENT":
+      return {
+        ...state,
+
+        appointments: state.appointments.map(appointment => {
+          if (appointment.patient._id === state.editPatient._id) {
+            appointment.patient = state.editPatient;
+          }
+          return appointment;
+        }),
+
+        patients: state.patients.map(patient => {
+          if (patient._id === state.editPatient._id) {
+            return state.editPatient;
+          }
+          return patient;
+        })
       };
     //
     default:
       return state;
   }
 }
+//PATIENT_INSERT_EDITPATIENT

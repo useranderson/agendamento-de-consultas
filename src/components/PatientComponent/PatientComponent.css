@@ -23,7 +23,8 @@
   width: 100px;
   display: inline-block;
 }
-.PatientDetailComponentRow input {
+.PatientDetailComponentRow input,
+select {
   padding: 4px;
   width: 100%;
   max-width: 400px;
