@@ -2,10 +2,11 @@
   color: #fff;
   background-color: #57606f;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 .HeaderComponent span {
-  font-size: 28px;
+  font-size: 22px;
   margin-left: 10px;
   text-transform: uppercase;
 }
@@ -18,5 +19,5 @@
   height: 40px;
 }
 .HeaderComponent img {
-  height: 24px;
+  height: 30px;
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import actions from "./store/actions";
 import reducer from "./store/reducer";
-import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
+import HeaderComponent from "./components/HeaderComponent";
 import ScheduleComponent from "./components/ScheduleComponent/ScheduleComponent";
 import AppointmentComponent from "./components/AppointmentComponent/AppointmentComponent";
 import PatientComponent from "./components/PatientComponent/PatientComponent";
@@ -85,36 +85,16 @@ export default class App extends Component {
   getMainView = option => {
     switch (option) {
       case 1:
-        return (
-          <ScheduleComponent
-            actions={actions}
-            dispatch={this.dispatch}
-            state={this.state}
-          />
-        );
+        return <ScheduleComponent actions={actions} dispatch={this.dispatch} state={this.state} />;
       case 2:
-        return (
-          <PatientComponent
-            actions={actions}
-            dispatch={this.dispatch}
-            state={this.state}
-          />
-        );
+        return <PatientComponent actions={actions} dispatch={this.dispatch} state={this.state} />;
       case 3:
         return (
-          <AppointmentComponent
-            actions={actions}
-            dispatch={this.dispatch}
-            state={this.state}
-          />
+          <AppointmentComponent actions={actions} dispatch={this.dispatch} state={this.state} />
         );
       case 4:
         return (
-          <PatientPopupComponent
-            actions={actions}
-            dispatch={this.dispatch}
-            state={this.state}
-          />
+          <PatientPopupComponent actions={actions} dispatch={this.dispatch} state={this.state} />
         );
       default:
         return null;
@@ -123,11 +103,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderComponent
-          actions={actions}
-          dispatch={this.dispatch}
-          state={this.state}
-        />
+        <HeaderComponent actions={actions} dispatch={this.dispatch} state={this.state} />
         {this.getMainView(this.state.viewOption)}
       </div>
     );
