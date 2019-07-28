@@ -15,7 +15,7 @@ export default function AppointmentPatientComponents({ actions, dispatch, state 
       </div>
       <div className="AppointmentComponent-row">
         <span>Anotação:</span>
-        <input type="text" value={`${state.activeAppointment.patient.note}`} readOnly />
+        <textarea type="text" rows={5} value={`${state.activeAppointment.patient.note}`} readOnly />
       </div>
       <div className="AppointmentComponent-row">
         <Button text="Mover" onClickFunc={async () => activeMovePatient()} />
