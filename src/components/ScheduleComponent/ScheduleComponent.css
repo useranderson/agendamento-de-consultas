@@ -16,6 +16,9 @@
   border-right: 1px solid lightgrey;
 }
 .AppointmentTimeComponent-Content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   font-size: 10px;
   height: 50px;
 
