@@ -17,7 +17,7 @@ export default function reducer(state, action) {
       return { ...state, activeAppointment: action.activeAppointment };
     //
     case "APP_SET_ACTIVEWEEK":
-      if (state.activeWeek + action.numChange >= 0) {
+      if (state.activeWeek + action.numChange >= 0 && state.activeWeek + action.numChange <= 3) {
         return { ...state, activeWeek: state.activeWeek + action.numChange };
       }
       return state;
