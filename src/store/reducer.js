@@ -1,4 +1,6 @@
-export default function reducer(state, action) {
+import request from "../request";
+
+export default async function reducer(state, action) {
   switch (action.type) {
     //
     case "APP_SET_VIEWOPTION":
@@ -184,14 +186,16 @@ export default function reducer(state, action) {
       };
     //
     case "NEWPATIENT_INSERT_PATIENT":
-      const normalizeCategory = !state.newPatient.category ? 1 : state.newPatient.category + 1;
+      const normalizeCategory = !state.newPatient.category ? 1 : state.newPatient.category;
 
       const newPatient = state.newPatient;
-      newPatient._id = state.patients.length + 1;
       newPatient.category = normalizeCategory;
+
+      const patient = await request.post("/patient/create", newPatient);
+
       return {
         ...state,
-        patients: [...state.patients, newPatient]
+        patients: [...state.patients, patient.data]
       };
     //
     case "PATIENT_SET_EDITPATIENT":

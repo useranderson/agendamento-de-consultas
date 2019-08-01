@@ -7,6 +7,7 @@ import ScheduleComponent from "./components/ScheduleComponent/ScheduleComponent"
 import AppointmentComponent from "./components/AppointmentComponent/AppointmentComponent";
 import PatientComponent from "./components/PatientComponent/PatientComponent";
 import PatientPopupComponent from "./components/PatientPopupComponent/PatientPopupComponent";
+import request from "./request";
 
 export default class App extends Component {
   constructor(props) {
@@ -24,29 +25,7 @@ export default class App extends Component {
       finalTime: 21,
       initialTime: 10,
       newPatient: {},
-      patients: [
-        {
-          _id: 1,
-          name: "Anderson Amorim",
-          contact: "(21) 9 8146-5003",
-          note: "Nota do Anderson de Amorim",
-          category: 1
-        },
-        {
-          _id: 2,
-          name: "Jessica Calegaro",
-          contact: "(21) 9 8146-5003",
-          note: "Nota do Jessica Calegaro",
-          category: 2
-        },
-        {
-          _id: 3,
-          name: "Luana Amorim",
-          contact: "(21) 9 8146-5003",
-          note: "Nota do Luana de Amorim",
-          category: 3
-        }
-      ],
+      patients: [],
       selectedWeekday: 0,
       viewOption: 1, // 1: Schedule, 2: Patients, 3: Appointment
       weekView: true,
@@ -55,9 +34,9 @@ export default class App extends Component {
     };
   }
   dispatch = async newState => {
-    await this.setState(reducer(this.state, newState));
+    await this.setState(await reducer(this.state, newState));
   };
-  componentWillMount() {
+  async componentWillMount() {
     let day = 1;
     let _id = 1;
     const appointments = [];
@@ -79,8 +58,10 @@ export default class App extends Component {
         day++;
       }
     }
-
-    this.setState({ ...this.state, appointments: appointments });
+    await this.setState({ ...this.state, appointments: appointments });
+    const patientsData = await request.get("/patient/list");
+    const patients = patientsData.data;
+    await this.setState({ ...this.state, patients: patients });
   }
   getMainView = option => {
     switch (option) {
