@@ -116,7 +116,7 @@ export default async function reducer(state, action) {
       };
     //
     case "APPOINTMENT_INSERT_SELECTEDPATIENT":
-      const newAppointments = state.appointments.map(async appointment => {
+      const newAppointments = state.appointments.map(appointment => {
         if (state.appointmentLockPatient) {
           if (
             appointment.hour === state.activeAppointment.hour &&
@@ -128,15 +128,18 @@ export default async function reducer(state, action) {
         } else {
           if (appointment._id === state.activeAppointment._id) {
             appointment.patient = state.appointmentSelectedPatient;
-            await request.post("/insertpatient", {
-              appointmentId: appointment._id,
-              patientId: state.appointmentSelectedPatient._id
-            });
           }
         }
 
         return appointment;
       });
+      if (state.appointmentLockPatient) {
+      } else {
+        await request.post("/appointment/insertpatient", {
+          appointmentId: state.activeAppointment._id,
+          patientId: state.appointmentSelectedPatient._id
+        });
+      }
       return {
         ...state,
         appointments: newAppointments,
