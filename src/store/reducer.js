@@ -37,7 +37,7 @@ export default async function reducer(state, action) {
     case "APP_REMOVE_PATIENTACTIVEAPPOINTMENT":
       const newAppointments_ = state.appointments.map(appointment => {
         if (appointment._id === state.activeAppointment._id) {
-          appointment.patient = {};
+          appointment.patient = null;
         }
         return appointment;
       });
@@ -230,11 +230,12 @@ export default async function reducer(state, action) {
       };
     //
     case "PATIENT_INSERT_EDITPATIENT":
+      await request.post("/patient/edit", state.editPatient);
       return {
         ...state,
 
         appointments: state.appointments.map(appointment => {
-          if (appointment.patient._id === state.editPatient._id) {
+          if (appointment.patient && appointment.patient._id === state.editPatient._id) {
             appointment.patient = state.editPatient;
           }
           return appointment;
