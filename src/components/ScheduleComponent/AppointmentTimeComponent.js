@@ -25,18 +25,18 @@ export default function AppointmentTimeComponent({
     return "AppointmentTimeComponent-Content";
   }
   function verifyClassname(patient) {
-    const AppointmentClassName = verifyDropEnter(
-      state.appointmentDragEnter,
-      thisAppointment
-    );
+    const AppointmentClassName = verifyDropEnter(state.appointmentDragEnter, thisAppointment);
 
-    if (!patient._id) {
+    if (!patient || !patient._id) {
       return `${AppointmentClassName} category0`;
     }
     return `${AppointmentClassName} category${patient.category}`;
   }
   function normalizePatientName(appointment) {
-    if (!appointment.patient.name) {
+    if (!appointment.patient || !appointment.patient.name) {
+      if (!appointment.fixedPatient) {
+        return null;
+      }
       return appointment.fixedPatient.name;
     }
     return appointment.patient.name;

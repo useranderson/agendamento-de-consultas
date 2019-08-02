@@ -7,7 +7,7 @@ export default function AppointmentAddComponent({ actions, dispatch, state }) {
     event.target.options[0].setAttribute("disabled", true);
   }
   function getConfirmButton(patient) {
-    if (!patient._id) {
+    if (!patient || !patient._id) {
       return true;
     }
     return false;

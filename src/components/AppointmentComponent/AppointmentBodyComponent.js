@@ -4,7 +4,7 @@ import Button from "../Commons/Button";
 
 export default function AppointmentBodyComponent({ actions, dispatch, thisAppointment }) {
   function normalizePatientName(patient) {
-    if (!patient.name) {
+    if (!patient || !patient.name) {
       return "";
     }
     return patient.name;
@@ -14,7 +14,7 @@ export default function AppointmentBodyComponent({ actions, dispatch, thisAppoin
     return weekdaysText[weekday];
   }
   const { day, hour, month, weekday, fixedPatient } = thisAppointment;
-  const verifyFixedPatient = !fixedPatient._id ? true : false;
+  const verifyFixedPatient = !fixedPatient || !fixedPatient._id ? true : false;
 
   return (
     <div className="AppointmentBodyComponent">

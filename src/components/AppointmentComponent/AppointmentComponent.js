@@ -14,22 +14,10 @@ export default function AppointmentComponent({ actions, dispatch, state }) {
     return null;
   }
   function verifyPatient(patient) {
-    if (!patient.name) {
-      return (
-        <AppointmentAddComponent
-          actions={actions}
-          dispatch={dispatch}
-          state={state}
-        />
-      );
+    if (!patient || !patient.name) {
+      return <AppointmentAddComponent actions={actions} dispatch={dispatch} state={state} />;
     }
-    return (
-      <AppointmentPatientComponent
-        actions={actions}
-        dispatch={dispatch}
-        state={state}
-      />
-    );
+    return <AppointmentPatientComponent actions={actions} dispatch={dispatch} state={state} />;
   }
   return (
     <div className="AppointmentComponent">

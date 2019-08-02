@@ -70,7 +70,7 @@ export default async function reducer(state, action) {
     //
     case "APPOINTMENT_SET_SELECTEDPATIENT":
       const patients = state.patients.filter(patient => {
-        return patient._id === Number(action.patientId);
+        return patient._id === action.patientId;
       });
       return { ...state, appointmentSelectedPatient: patients[0] };
     //

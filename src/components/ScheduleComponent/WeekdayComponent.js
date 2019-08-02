@@ -4,8 +4,8 @@ import AppointmentTimeComponent from "./AppointmentTimeComponent";
 import WeekdayTitleComponent from "./WeekdayTitleComponent";
 
 export default function WeekdayComponent({ actions, dispatch, state, appointments }) {
-  const appointmentWeekdays = [];
-  appointmentWeekdays.push(appointments[0]);
+  const appointmentWeekdays = appointments[0] ? [appointments[0]] : [];
+
   return (
     <div className="WeekdayComponent">
       {appointmentWeekdays.map(appointmentWeekday => {

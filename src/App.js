@@ -13,7 +13,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeWeek: 0,
+      activeWeek: 1,
       activeAppointment: {},
       activePatient: {},
       appointmentDragStart: {},
@@ -37,31 +37,12 @@ export default class App extends Component {
     await this.setState(await reducer(this.state, newState));
   };
   async componentWillMount() {
-    let day = 1;
-    let _id = 1;
-    const appointments = [];
-    for (let k = 0; k < 4; k++) {
-      for (let j = 0; j < 7; j++) {
-        for (let i = this.state.initialTime; i <= this.state.finalTime; i++) {
-          appointments.push({
-            _id: _id,
-            hour: i,
-            weekday: j,
-            week: k,
-            day: day,
-            month: 1,
-            patient: {},
-            fixedPatient: {}
-          });
-          _id++;
-        }
-        day++;
-      }
-    }
-    await this.setState({ ...this.state, appointments: appointments });
     const patientsData = await request.get("/patient/list");
+    const appointmentsData = await request.get("/appointment/list");
+
     const patients = patientsData.data;
-    await this.setState({ ...this.state, patients: patients });
+    const appointments = appointmentsData.data;
+    await this.setState({ ...this.state, patients: patients, appointments: appointments });
   }
   getMainView = option => {
     switch (option) {
