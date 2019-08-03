@@ -19,7 +19,7 @@ export default async function reducer(state, action) {
       return { ...state, activeAppointment: action.activeAppointment };
     //
     case "APP_SET_ACTIVEWEEK":
-      if (state.activeWeek + action.numChange >= 0 && state.activeWeek + action.numChange <= 3) {
+      if (state.activeWeek + action.numChange >= 1 && state.activeWeek) {
         return { ...state, activeWeek: state.activeWeek + action.numChange };
       }
       return state;
@@ -35,6 +35,8 @@ export default async function reducer(state, action) {
       };
     //
     case "APP_REMOVE_PATIENTACTIVEAPPOINTMENT":
+      await request.post("/appointment/removepatient", { _id: state.activeAppointment._id });
+
       const newAppointments_ = state.appointments.map(appointment => {
         if (appointment._id === state.activeAppointment._id) {
           appointment.patient = null;
@@ -133,12 +135,13 @@ export default async function reducer(state, action) {
 
         return appointment;
       });
+      const appointment = await request.post("/appointment/insertpatient", {
+        appointmentId: state.activeAppointment._id,
+        patientId: state.appointmentSelectedPatient._id
+      });
+
       if (state.appointmentLockPatient) {
-      } else {
-        await request.post("/appointment/insertpatient", {
-          appointmentId: state.activeAppointment._id,
-          patientId: state.appointmentSelectedPatient._id
-        });
+        request.post("/appointment/insertfixedpatient", appointment.data);
       }
       return {
         ...state,
@@ -163,7 +166,7 @@ export default async function reducer(state, action) {
       if (state.weekTouchStartX - state.weekTouchMoveX > 100) {
         return { ...state, activeWeek: state.activeWeek + 1 };
       }
-      if (state.weekTouchStartX - state.weekTouchMoveX < -100 && state.activeWeek > 0) {
+      if (state.weekTouchStartX - state.weekTouchMoveX < -100 && state.activeWeek > 1) {
         return { ...state, activeWeek: state.activeWeek - 1 };
       }
       return state;
