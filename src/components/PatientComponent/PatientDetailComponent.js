@@ -3,7 +3,6 @@ import React from "react";
 import Button from "../Commons/Button";
 
 export default function PatientDetailComponent({ actions, dispatch, state, patient }) {
-  console.log(patient);
   const getReadOnly = state.editPatient._id === patient._id ? false : true;
   const getEditClasse = getReadOnly ? "patientNoEdited" : "patientEdited";
 
