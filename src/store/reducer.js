@@ -82,13 +82,19 @@ export default async function reducer(state, action) {
       return { ...state, appointmentDragEnter: action.appointment };
     //
     case "APPOINTMENT_SET_PATIENTEND":
-      if (state.appointmentDragEnter.patient._id) {
+      if (state.appointmentDragEnter.patient) {
         return {
           ...state,
           appointmentDragStart: {},
           appointmentDragEnter: {}
         };
       }
+
+      await request.post("/appointment/removepatient", { _id: state.appointmentDragStart._id });
+      await request.post("/appointment/insertpatient", {
+        appointmentId: state.appointmentDragEnter._id,
+        patientId: state.appointmentDragStart.patient._id
+      });
       if (state.appointmentDragStart._id === state.appointmentDragEnter._id) {
         return {
           ...state,
@@ -109,6 +115,7 @@ export default async function reducer(state, action) {
 
         return appointment;
       });
+
       return {
         ...state,
         appointments: newAppointments____,
