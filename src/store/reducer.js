@@ -169,10 +169,10 @@ export default async function reducer(state, action) {
       return { ...state, weekTouchMoveX: action.x };
     //
     case "SCHEDULE_SET_TOUCHENDX":
-      if (state.weekTouchStartX - state.weekTouchMoveX > 100) {
+      if (state.weekTouchStartX - state.weekTouchMoveX > 200) {
         return { ...state, activeWeek: state.activeWeek + 1 };
       }
-      if (state.weekTouchStartX - state.weekTouchMoveX < -100 && state.activeWeek > 1) {
+      if (state.weekTouchStartX - state.weekTouchMoveX < -200 && state.activeWeek > 1) {
         return { ...state, activeWeek: state.activeWeek - 1 };
       }
       return state;
