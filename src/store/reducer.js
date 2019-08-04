@@ -46,21 +46,20 @@ export default async function reducer(state, action) {
       return { ...state, appointments: newAppointments_ };
     //
     case "APP_REMOVE_PATIENTFIXEDACTIVEAPPOINTMENT":
+      await request.post("/appointment/removefixedpatient", state.activeAppointment);
       const newAppointments__ = state.appointments.map(appointment => {
         if (
           appointment.hour === state.activeAppointment.hour &&
           appointment.weekday === state.activeAppointment.weekday
         ) {
-          appointment.fixedPatient = {};
-          if (
-            appointment.month * 100 + appointment.day >=
-            state.activeAppointment.month * 100 + state.activeAppointment.day
-          ) {
-            appointment.patient = {};
+          appointment.fixedPatient = null;
+          if (appointment.week >= state.activeAppointment.week) {
+            appointment.patient = null;
           }
         }
         return appointment;
       });
+
       return { ...state, appointments: newAppointments__ };
 
     //
