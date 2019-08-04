@@ -36,13 +36,29 @@ export default class App extends Component {
   dispatch = async newState => {
     await this.setState(await reducer(this.state, newState));
   };
+  getToday = date => {
+    const appointmentsFiltered = this.state.appointments.filter(appointment => {
+      return (
+        appointment.day === date.getDate() &&
+        appointment.month === date.getMonth() &&
+        appointment.year === date.getFullYear() &&
+        appointment.hour === 0
+      );
+    });
+    return appointmentsFiltered[0];
+  };
   async componentWillMount() {
     const patientsData = await request.get("/patient/list");
     const appointmentsData = await request.get("/appointment/list");
 
     const patients = patientsData.data;
     const appointments = appointmentsData.data;
+
     await this.setState({ ...this.state, patients: patients, appointments: appointments });
+
+    const newDate = new Date();
+    const today = this.getToday(newDate);
+    await this.setState({ activeWeek: today.week });
   }
   getMainView = option => {
     switch (option) {

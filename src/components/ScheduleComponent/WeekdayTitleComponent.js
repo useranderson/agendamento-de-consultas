@@ -19,7 +19,7 @@ export default function WeekdayTitleComponent({ actions, dispatch, state, appoin
         setSelectedWeekHandle(weekday);
       }}
     >
-      <strong>{`${weekdayNumToText(weekday)} ${day}/${month}`}</strong>
+      <strong>{`${weekdayNumToText(weekday)} ${day}/${month + 1}`}</strong>
     </div>
   );
 }

@@ -20,7 +20,11 @@ export default function AppointmentBodyComponent({ actions, dispatch, thisAppoin
     <div className="AppointmentBodyComponent">
       <div className="AppointmentComponent-row">
         <span>Data:</span>
-        <input type="text" value={`${weekdayNumToText(weekday)} ${day}/${month}/2019`} readOnly />
+        <input
+          type="text"
+          value={`${weekdayNumToText(weekday)} ${day}/${month + 1}/2019`}
+          readOnly
+        />
       </div>
       <div className="AppointmentComponent-row">
         <span>Horário:</span>
