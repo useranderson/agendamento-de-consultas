@@ -8,6 +8,7 @@ import AppointmentComponent from "./components/AppointmentComponent/AppointmentC
 import PatientComponent from "./components/PatientComponent/PatientComponent";
 import PatientPopupComponent from "./components/PatientPopupComponent/PatientPopupComponent";
 import request from "./request";
+import NavbarComponent from "./components/NavbarComponenet";
 
 export default class App extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class App extends Component {
       appointmentSelectedPatient: {},
       appointments: [],
       editPatient: {},
-      finalTime: 8,
+      finalTime: 22,
       initialTime: 0,
       newPatient: {},
       patients: [],
@@ -83,6 +84,7 @@ export default class App extends Component {
       <div className="App">
         <HeaderComponent actions={actions} dispatch={this.dispatch} state={this.state} />
         {this.getMainView(this.state.viewOption)}
+        <NavbarComponent actions={actions} dispatch={this.dispatch} state={this.state} />
       </div>
     );
   }

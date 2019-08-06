@@ -1,0 +1,45 @@
+.NavbarComponent {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid lightgrey;
+  -webkit-box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.14);
+  -moz-box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.14);
+}
+.NavbarComponent-Content {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(247, 247, 247);
+}
+
+.NavbarComponent-Content button:hover {
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+.NavbarComponent-WeekDetail {
+  height: 30px;
+  width: 200px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 10px;
+  font-weight: bold;
+}
+.NavbarNormalIcons {
+  width: 26.6%;
+  background-color: red;
+  color: white;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+}
+.NavbarSideIcons {
+  width: 10%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+}
+.NavbarIcon {
+  height: 100%;
+  padding: 5px;
+}

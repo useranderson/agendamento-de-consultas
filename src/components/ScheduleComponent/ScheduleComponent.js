@@ -2,13 +2,11 @@ import React from "react";
 
 import "./ScheduleComponent.css";
 import WeekComponent from "./WeekComponent";
-import NavbarComponent from "./NavbarComponent";
 
 export default function ScheduleComponent({ actions, dispatch, state }) {
   const { appointments } = state;
   return (
     <>
-      <NavbarComponent actions={actions} dispatch={dispatch} state={state} />
       <div
         className="ScheduleComponent"
         onTouchStart={event => dispatch(actions.scheduleSetTouchStartX(event.touches[0].pageX))}
