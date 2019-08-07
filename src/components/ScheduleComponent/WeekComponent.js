@@ -9,7 +9,7 @@ export default function WeekComponent({ actions, dispatch, state, appointments }
     if (!state.weekView) {
       return [state.selectedWeekday];
     }
-    return [0, 1, 2, 3, 4, 5, 6];
+    return [0, 1, 2, 3, 4, 5];
   }
   //
   const weekdays = getWeekDay(state);
