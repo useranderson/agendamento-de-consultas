@@ -14,10 +14,16 @@ export default function NavbarComponent({ actions, dispatch, state }) {
             className="NavbarSideIcons"
             onClick={() => dispatch(actions.appSetActiveWeek(-1))}
           >{`<`}</button>
-          <button className="NavbarNormalIcons">
+          <button
+            className="NavbarNormalIcons"
+            onClick={() => dispatch(actions.appSetViewOption(1))}
+          >
             <img className="NavbarIcon" src={bt_calendar} />
           </button>
-          <button className="NavbarNormalIcons">
+          <button
+            className="NavbarNormalIcons"
+            onClick={() => dispatch(actions.appSetViewOption(2))}
+          >
             <img className="NavbarIcon" src={bt_patients} />
           </button>
           <button className="NavbarNormalIcons">

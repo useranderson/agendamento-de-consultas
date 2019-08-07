@@ -16,9 +16,6 @@ export default function HeaderComponent({ actions, dispatch, state }) {
   return (
     <div className="HeaderComponent">
       <span>{headerOptions.title}</span>
-      <button onClick={() => dispatch(actions.appSetViewOption(headerOptions.changeNumber))}>
-        <img src={headerOptions.image} alt="Mudar visão" />
-      </button>
     </div>
   );
 }
