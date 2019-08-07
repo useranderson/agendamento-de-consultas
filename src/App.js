@@ -49,7 +49,7 @@ export default class App extends Component {
     return appointmentsFiltered[0];
   };
   async componentWillMount() {
-    const patientsData = await request.get("/patient/list");
+    const patientsData = await request.get("/patient/list/9/21");
     const appointmentsData = await request.get("/appointment/list");
 
     const patients = patientsData.data;
