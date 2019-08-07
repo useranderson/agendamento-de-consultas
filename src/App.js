@@ -50,7 +50,7 @@ export default class App extends Component {
   };
   async componentWillMount() {
     const patientsData = await request.get("/patient/list/");
-    const appointmentsData = await request.get("/appointment/list/this.state.initialTime/this.state.finalTime");
+    const appointmentsData = await request.get(`/appointment/list/${this.state.initialTime}/${this.state.finalTime}`);
 
     const patients = patientsData.data;
     const appointments = appointmentsData.data;
